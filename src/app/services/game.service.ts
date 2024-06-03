@@ -26,6 +26,10 @@ export class GameService {
     return this.http.get<Game[]>(this.baseUrl).pipe(catchError(this.handleError));
   }
 
+  getGame(id: number): Observable<Game> {
+    return this.http.get<Game>(this.baseUrl + "/" + id).pipe(catchError(this.handleError));
+  }
+
 
   // Questo metodo gestisce gli errori, distinguendo tra errori lato client e lato server, e crea un messaggio di errore appropriato.
   // Infine, utilizza throwError per restituire un nuovo Observable che emette l'errore.
