@@ -45,4 +45,14 @@ export class GameService {
     
     return status == '201' ? true : false;
   }
+
+  deleteGame(id: number) {
+    axios.delete(this.baseUrl +"/delete/"+ id)
+    .then(function(response){
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.error('Errore nella richiesta:', error);
+    });
+  }
 }
