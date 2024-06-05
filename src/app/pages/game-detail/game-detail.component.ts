@@ -15,6 +15,7 @@ export class GameDetailComponent implements OnInit {
 
   game: Game = {};
   id: number = 0;
+  error: any = "";
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -34,11 +35,13 @@ export class GameDetailComponent implements OnInit {
         this.id = value['id'];
         this.gameService.getGame(this.id).subscribe({
           next: g => this.game = g,
-          error: err => console.error('Observable game emitted an error: ' , err)
+          error: err => {
+            console.error('Game not found ' , err);
+            this.error = err;
+          }
         })
       },
-      error: err => console.error('Observable emitted an error: ' , err),
-      complete: () => console.log('Observable emitted the complete notification')
+      error: err => console.error('Observable emitted an error: ' , err)
     })
   }
 
