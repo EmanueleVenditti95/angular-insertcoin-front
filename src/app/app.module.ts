@@ -8,19 +8,23 @@ import { MaterialModule } from './shared/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GamesComponent } from './pages/games/games.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
+import { GameEditorComponent } from './pages/game-editor/game-editor.component';
+import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     GamesComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    GameEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

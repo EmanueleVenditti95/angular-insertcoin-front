@@ -1,0 +1,19 @@
+<p *ngIf="error">{{error}}</p>
+
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+
+    <label for="nome">Nome: </label>
+    <input id="nome" type="text" formControlName="nome" required>
+  
+    <label for="descrizione">Descrizione: </label>
+    <input id="descrizione" type="text" formControlName="descrizione" required>
+
+    <label for="video">Url video: </label>
+    <input id="video" type="text" formControlName="video" required>
+<!-- 
+    <label for="id_categoria">Categoria: </label>
+    <input id="id_categoria" type="number" formControlName="id_categoria" required> -->
+
+    <input type="submit">
+  
+  </form>
