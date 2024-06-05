@@ -15,7 +15,7 @@ export class GameDetailComponent implements OnInit {
 
   game: Game = {};
   id: number = 0;
-  error: any = "";
+  error?: Error;
 
   constructor(
     private readonly route: ActivatedRoute,
