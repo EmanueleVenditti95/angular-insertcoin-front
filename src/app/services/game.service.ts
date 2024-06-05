@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'; //necessario per definire un servizio in Angular.
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs'; // Observable rappresenta un flusso di dati che possono essere asincroni.
+import { Observable, catchError, map, throwError } from 'rxjs'; // Observable rappresenta un flusso di dati che possono essere asincroni.
 import { Game } from '../model/game';
 
 // Questo decoratore configura la classe GameService come un servizio che può essere iniettato in altre parti dell'applicazione.
@@ -22,30 +22,10 @@ export class GameService {
 
   getGames(): Observable<Game[]> {
     // Restituisce un Observable di un array di oggetti Game. Questo permette di sottoscriversi al risultato e gestire i dati in modo asincrono.
-    // il metodo pipe serve per collegare il metodo catchError al flusso dell'Observable.
-    return this.http.get<Game[]>(this.baseUrl).pipe(catchError(this.handleError));
+    return this.http.get<Game[]>(this.baseUrl);
   }
 
   getGame(id: number): Observable<Game> {
-    return this.http.get<Game>(this.baseUrl + "/" + id).pipe(catchError(this.handleError));
-  }
-
-
-  // Questo metodo gestisce gli errori, distinguendo tra errori lato client e lato server, e crea un messaggio di errore appropriato.
-  // Infine, utilizza throwError per restituire un nuovo Observable che emette l'errore.
-  private handleError(error: HttpErrorResponse) {
-
-    let errorMessage = '';
-
-    if (error.error instanceof ErrorEvent) {
-      // Client-side error
-      errorMessage = `Client-side error: ${error.error.message}`;
-    } else {
-      // Server-side error
-      errorMessage = `Server-side error: ${error.status} ${error.message}`;
-    }
-    
-    console.error(errorMessage);
-    return throwError(() => new Error(errorMessage));
+    return this.http.get<Game>(this.baseUrl + "/" + id);
   }
 }
