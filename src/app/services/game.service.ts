@@ -30,21 +30,21 @@ export class GameService {
     return this.http.get<Game>(this.baseUrl + "/" + id);
   }
 
-  addGame(game: Game): boolean {
-    const body = JSON.stringify(game);
-    try {
-      axios.post(this.baseUrl+"/inserimento",
-            body,
-            {headers: {'Content-Type': 'application/json'}}
-          )
-          .then(response => {
-            console.log(response);             
-          })
-      return true; 
-    } catch (error) {
-      console.error('Errore nella richiesta:', error);
-      return false;
-    } 
+  addGame(game: Game) {
+    // try {
+    //   axios.post(this.baseUrl+"/inserimento",
+    //         body,
+    //         {headers: {'Content-Type': 'application/json'}}
+    //       )
+    //       .then(response => {
+    //         console.log(response);             
+    //       })
+    //   return true; 
+    // } catch (error) {
+    //   console.error('Errore nella richiesta:', error);
+    //   return false;
+    // } 
+    return this.http.post(this.baseUrl + "/inserimento", game);
   }
 
   deleteGame(id?: number) {

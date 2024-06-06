@@ -15,11 +15,11 @@ const routes: Routes = [
         component: GamesComponent
       },
       {
-        path: 'game/add',
+        path: 'games/add',
         component: GameEditorComponent
       },
       {
-        path: 'game/:id',
+        path: 'games/game/:id',
         component: GameDetailComponent
       },
       {

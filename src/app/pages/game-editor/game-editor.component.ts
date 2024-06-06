@@ -29,29 +29,25 @@ export class GameEditorComponent {
   });
 
   onSubmit() {
-
     if (this.requestForm.valid) {
-
       const formValue = this.requestForm.value;
-
       this.game = {
         nome: formValue.nome ?? '', // Usa una stringa vuota se formValue.nome è null o undefined
         descrizione: formValue.descrizione ?? '',
         video: formValue.video ?? ''
       };
-
-      let check = this.gameService.addGame(this.game);
-      console.log(check);
       
-
-      if(check) {
-        this.router.navigate(['/game',this.game.id]);
-      } else if(!check) {
-        this.error = "Errore nel caricamento dei dati";      
-      }
+      this.gameService.addGame(this.game).subscribe({
+          next: response => {
+            console.log('gioco creato', 'id:' + response);
+            this.router.navigate(['/games/game/'+ response]);          
+          },
+          error: err => console.error('Errore durante la creazione:', err)
+        })
     } else {
       console.error('Form non valido');
     } 
-
   }
+
+  
 }
