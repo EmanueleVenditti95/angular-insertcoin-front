@@ -24,12 +24,16 @@ export class GameDetailComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) { }
 
-  // per rendere sicuro il link esterno del video
+  ngOnInit(): void {
+    this.getGame();
+  }
+
+
   getVideoUrl(game?: Game): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${game?.video}`);
   }
 
-  ngOnInit(): void {
+  getGame() {
     this.route.params.subscribe({
       next: value => {
         this.id = value['id'];
@@ -43,6 +47,18 @@ export class GameDetailComponent implements OnInit {
       },
       error: err => console.error('Observable emitted an error: ' , err)
     })
+  }
+
+  deleteGame(id?:number): void {
+    this.gameService.deleteGame(id).subscribe(
+      response => {
+        console.log('Gioco cancellato:', response);
+        this.router.navigate(['']);
+      },
+      error => {
+        console.error('Errore durante la cancellazione:', error);
+      }
+    );
   }
 
   // ngOnInit(): void {

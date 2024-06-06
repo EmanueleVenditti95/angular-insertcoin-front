@@ -1,5 +1,5 @@
-<button>
-    <a href="'http://localhost:9797/insertcoinsrest/api/giochi/delete/' + {{game.id}}">Cancella gioco</a>
+<button (click)="deleteGame(game.id)">
+    Cancella gioco
 </button>
 <h3>{{game.nome}}</h3>
 <p>{{game.id_categoria}}</p>

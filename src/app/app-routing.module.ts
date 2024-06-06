@@ -11,7 +11,7 @@ const routes: Routes = [
     component: NavigationComponent,
     children: [
       {
-        path: '',
+        path: 'games',
         component: GamesComponent
       },
       {
@@ -22,6 +22,11 @@ const routes: Routes = [
         path: 'game/:id',
         component: GameDetailComponent
       },
+      {
+        path: '',
+        redirectTo: 'games',
+        pathMatch: 'full'
+      }
     ]
   }
 ];

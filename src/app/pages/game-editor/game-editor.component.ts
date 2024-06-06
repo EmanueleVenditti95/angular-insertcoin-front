@@ -41,9 +41,12 @@ export class GameEditorComponent {
       };
 
       let check = this.gameService.addGame(this.game);
+      console.log(check);
+      
+
       if(check) {
         this.router.navigate(['/game',this.game.id]);
-      } else {
+      } else if(!check) {
         this.error = "Errore nel caricamento dei dati";      
       }
     } else {

@@ -3,5 +3,9 @@
     <li *ngFor="let game of games">
         <a routerLink="game/{{game.id}}">{{ game.nome }}</a>
         <p class="extract">{{ game.descrizione }}</p>
+        <p>
+            <button (click)="editGame(game.id)">Modifica gioco</button>
+            <button (click)="deleteGame(game.id)">Cancella gioco</button>
+        </p>
     </li>
 <ul>

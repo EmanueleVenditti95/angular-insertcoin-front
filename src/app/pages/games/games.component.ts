@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../model/game';
+import { GameDetailComponent } from '../game-detail/game-detail.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -14,15 +16,38 @@ export class GamesComponent implements OnInit {
 
   // Il costruttore prende un'istanza di GameService come dipendenza, utilizzando la Dependency Injection di Angular.
   // Questo servizio sarà usato per recuperare i dati dei giochi.
-  constructor(private gameService: GameService) { }
+  constructor(
+    private gameService: GameService,
+    private router: Router
+  ) { }
 
   // Questo metodo viene eseguito al momento dell'inizializzazione del componente. 
   // Utilizza il gameService per ottenere i giochi.getGames() restituisce un Observable, al quale ci si sottoscrive (subscribe).
   ngOnInit(): void {
+    this.getGames();
+  }
+
+  getGames() {
     this.gameService.getGames().subscribe((data: any) => {
       this.games = data._embedded.giochi;
       console.log(this.games);
     })
   }
 
+  deleteGame(id?:number): void {
+    this.gameService.deleteGame(id).subscribe(
+      response => {
+        console.log('Gioco cancellato:', response);
+        this.games = this.games?.filter(game => game.id !== id);
+      },
+      error => {
+        console.error('Errore durante la cancellazione:', error);
+      }
+    );
+  }
+
+  editGame(id?:number) :void {
+
+  }
+    
 }
