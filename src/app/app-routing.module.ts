@@ -4,6 +4,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { GamesComponent } from './pages/games/games.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { GameCreationComponent } from './pages/game-creation/game-creation.component'; 
+import { GameEditComponent } from './pages/game-edit/game-edit.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'games/game/:id',
         component: GameDetailComponent
+      },
+      {
+        path: 'games/edit/:id',
+        component: GameEditComponent
       },
       {
         path: '',

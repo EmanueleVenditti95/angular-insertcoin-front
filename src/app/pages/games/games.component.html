@@ -4,7 +4,7 @@
         <a routerLink="game/{{game.id}}">{{ game.nome }}</a>
         <p class="extract">{{ game.descrizione }}</p>
         <p>
-            <button (click)="editGame(game.id)">Modifica gioco</button>
+            <button routerLink="/games/edit/{{game.id}}">Modifica gioco</button>
             <button (click)="deleteGame(game.id)">Cancella gioco</button>
         </p>
     </li>
