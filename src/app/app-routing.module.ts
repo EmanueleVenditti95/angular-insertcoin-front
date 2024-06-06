@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GamesComponent } from './pages/games/games.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
-import { GameEditorComponent } from './pages/game-editor/game-editor.component';
+import { GameCreationComponent } from './pages/game-creation/game-creation.component'; 
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'games/add',
-        component: GameEditorComponent
+        component: GameCreationComponent
       },
       {
         path: 'games/game/:id',

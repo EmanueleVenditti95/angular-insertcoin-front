@@ -5,13 +5,13 @@ import { GameService } from '../../services/game.service';
 import {Router} from "@angular/router"
 
 @Component({
-  selector: 'app-game-editor',
-  templateUrl: './game-editor.component.html',
-  styleUrl: './game-editor.component.scss'
+  selector: 'app-game-creation',
+  templateUrl: './game-creation.component.html',
+  styleUrl: './game-creation.component.scss'
 })
 
 
-export class GameEditorComponent {
+export class GameCreationComponent {
 
   constructor(
     private readonly gameService: GameService,
@@ -25,7 +25,6 @@ export class GameEditorComponent {
     nome: new FormControl('', Validators.required),
     descrizione: new FormControl('', Validators.required),
     video: new FormControl('', Validators.required),
-    // id_categoria: new FormControl(0, [Validators.required, Validators.min(1)])
   });
 
   onSubmit() {
