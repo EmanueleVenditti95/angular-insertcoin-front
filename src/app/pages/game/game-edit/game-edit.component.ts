@@ -21,8 +21,8 @@ export class GameEditComponent {
   error = "";
   requestForm = new FormGroup({
     nome: new FormControl('', Validators.required),
-    descrizione: new FormControl('', Validators.required),
-    video: new FormControl('', Validators.required),
+    descrizione: new FormControl(''),
+    video: new FormControl(''),
   });
 
   ngOnInit(): void {
@@ -66,7 +66,8 @@ export class GameEditComponent {
 
       this.gameService.saveGame(this.game).subscribe({
         next: response => {
-          console.log('gioco aggiornato', response);         
+          console.log('gioco aggiornato', response);
+          this.router.navigate(['/games/game/'+ this.id]);         
         },
         error: err => console.error('Errore durante l\'aggiornamento:', err)
       })

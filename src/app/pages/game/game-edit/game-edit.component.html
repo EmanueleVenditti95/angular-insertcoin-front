@@ -1,19 +1,22 @@
 <p *ngIf="error">{{error}}</p>
 
 <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field>
+        <mat-label>Titolo</mat-label>
+        <input matInput formControlName="nome" required>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Url video</mat-label>
+        <input matInput formControlName="video">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Descrizione</mat-label>
+        <textarea matInput formControlName="descrizione"></textarea>
+    </mat-form-field>
 
-    <label for="nome">Nome: </label>
-    <input id="nome" type="text" formControlName="nome" required [value]="game.nome">
-  
-    <label for="descrizione">Descrizione: </label>
-    <textarea id="descrizione" type="textarea" formControlName="descrizione" required></textarea>
-
-    <label for="video">Url video: </label>
-    <input id="video" type="text" formControlName="video" required>
-<!-- 
-    <label for="id_categoria">Categoria: </label>
-    <input id="id_categoria" type="number" formControlName="id_categoria" required> -->
-
-    <input type="submit">
+    <button mat-flat-button color="primary" type="submit">Modifica</button>
   
   </form>

@@ -12,6 +12,8 @@ import { GameCreationComponent } from './pages/game/game-creation/game-creation.
 import { ReactiveFormsModule } from '@angular/forms';
 import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
 import { CategoriesComponent } from './pages/category/categories/categories.component'; // Importa ReactiveFormsModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import { CategoriesComponent } from './pages/category/categories/categories.comp
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration()

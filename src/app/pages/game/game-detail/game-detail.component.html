@@ -1,6 +1,6 @@
-<button (click)="deleteGame(game.id)">
-    Cancella gioco
-</button>
+<button routerLink="/games/edit/{{game.id}}">Modifica gioco</button>
+<button (click)="deleteGame(game.id)">Cancella gioco</button>
+
 <h3>{{game.nome}}</h3>
 <p>{{game.id_categoria}}</p>
 <p>{{game.descrizione}}</p>

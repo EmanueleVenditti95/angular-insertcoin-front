@@ -23,8 +23,8 @@ export class GameCreationComponent {
  
   requestForm = new FormGroup({
     nome: new FormControl('', Validators.required),
-    descrizione: new FormControl('', Validators.required),
-    video: new FormControl('', Validators.required),
+    descrizione: new FormControl(''),
+    video: new FormControl(''),
   });
 
   onSubmit() {
