@@ -10,7 +10,8 @@ import { GamesComponent } from './pages/games/games.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 import { GameCreationComponent } from './pages/game-creation/game-creation.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GameEditComponent } from './pages/game-edit/game-edit.component'; // Importa ReactiveFormsModule
+import { GameEditComponent } from './pages/game-edit/game-edit.component';
+import { CategoriesComponent } from './pages/category/categories/categories.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GameEditComponent } from './pages/game-edit/game-edit.component'; // Im
     GamesComponent,
     GameDetailComponent,
     GameCreationComponent,
-    GameEditComponent
+    GameEditComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
