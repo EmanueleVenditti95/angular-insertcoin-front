@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Game } from '../../model/game';
-import { GameService } from '../../services/game.service';
+import { Game } from '../../../model/game';
+import { GameService } from '../../../services/game.service';
 import { ActivatedRoute, Router } from "@angular/router"
 @Component({
   selector: 'app-game-edit',

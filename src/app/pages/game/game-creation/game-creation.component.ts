@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
-import { Game } from '../../model/game';
-import { GameService } from '../../services/game.service';
+import { Game } from '../../../model/game';
+import { GameService } from '../../../services/game.service';
 import {Router} from "@angular/router"
 
 @Component({

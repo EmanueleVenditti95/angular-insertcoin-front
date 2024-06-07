@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
-import { GamesComponent } from './pages/games/games.component';
-import { GameDetailComponent } from './pages/game-detail/game-detail.component';
-import { GameCreationComponent } from './pages/game-creation/game-creation.component'; 
-import { GameEditComponent } from './pages/game-edit/game-edit.component';
+import { GamesComponent } from './pages/game/games/games.component';
+import { GameDetailComponent } from './pages/game/game-detail/game-detail.component';
+import { GameCreationComponent } from './pages/game/game-creation/game-creation.component'; 
+import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
 
 const routes: Routes = [
   {

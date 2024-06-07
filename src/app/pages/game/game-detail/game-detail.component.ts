@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { Game } from '../../model/game';
-import { GameService } from '../../services/game.service';
+import { Game } from '../../../model/game';
+import { GameService } from '../../../services/game.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { log } from 'console';
 

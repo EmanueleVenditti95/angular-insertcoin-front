@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../services/game.service';
-import { Game } from '../../model/game';
+import { GameService } from '../../../services/game.service';
+import { Game } from '../../../model/game';
 import { GameDetailComponent } from '../game-detail/game-detail.component';
 import { Router } from '@angular/router';
 
@@ -30,7 +30,6 @@ export class GamesComponent implements OnInit {
   getGames() {
     this.gameService.getGames().subscribe((data: any) => {
       this.games = data._embedded.giochi;
-      console.log(this.games);
     })
   }
 
