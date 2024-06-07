@@ -1,5 +1,27 @@
+//COLOR VARIABLES
+$header: #171D25;
+$light: #F8F4F8;
+
+//UTILITIES
 .page-wrapper {
     max-width: 1920px;
     margin: 0 auto;
     padding: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+header {
+    background-color: $header;
+    color: $light;
+}
+
+.header-bar {
+    height: 10vh;
+    .mat-mdc-button:not(:disabled) {
+        color: $light;
+    }
 }
