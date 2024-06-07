@@ -31,30 +31,14 @@ export class GameService {
   }
 
   addGame(game: Game) {
-    // try {
-    //   axios.post(this.baseUrl+"/inserimento",
-    //         body,
-    //         {headers: {'Content-Type': 'application/json'}}
-    //       )
-    //       .then(response => {
-    //         console.log(response);             
-    //       })
-    //   return true; 
-    // } catch (error) {
-    //   console.error('Errore nella richiesta:', error);
-    //   return false;
-    // } 
     return this.http.post(this.baseUrl + "/inserimento", game);
   }
 
+  saveGame(game: Game) {
+    return this.http.put(this.baseUrl + "/aggiornamento", game);
+  }
+
   deleteGame(id?: number) {
-    // axios.delete(this.baseUrl +"/"+ id)
-    // .then(function(response){
-    //   console.log("cancellato",response);
-    // })
-    // .catch(function(error) {
-    //   console.error('Errore nella richiesta:', error);
-    // });
     return this.http.delete(this.baseUrl + "/" + id);
   }
 }

@@ -55,6 +55,23 @@ export class GameEditComponent {
   }
 
   onSubmit() {
-    //TODO...
+    if (this.requestForm.valid) {
+      const formValue = this.requestForm.value;
+      this.game = {
+        id:this.id,
+        nome: formValue.nome ?? '',
+        descrizione: formValue.descrizione ?? '',
+        video: formValue.video ?? ''
+      };
+
+      this.gameService.saveGame(this.game).subscribe({
+        next: response => {
+          console.log('gioco aggiornato', response);         
+        },
+        error: err => console.error('Errore durante l\'aggiornamento:', err)
+      })
+    } else {
+      console.error('Form non valido');
+    } 
   }
 }
