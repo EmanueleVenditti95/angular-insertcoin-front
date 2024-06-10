@@ -1,15 +1,13 @@
 <div class="row">
     <div class="col-4 py-3" *ngFor="let game of games">
-        <div class="card-game" >
-            <a routerLink="game/{{game.id}}">{{ game.nome }}</a>
-        
-            <img src="https://placehold.co/600x400" alt="">
-
-            <div class="d-flex">
+            <a routerLink="game/{{game.id}}" class="card-game">
+                <p>{{ game.nome }}</p>
+                <img src="https://placehold.co/600x400" alt="">
+            </a>
+            <!-- <div class="d-flex">
                 <button routerLink="/games/edit/{{game.id}}">Modifica</button>
                 <button (click)="deleteGame(game.id)">Cancella</button>
-            </div>
-        </div>
+            </div> -->
     </div>
 </div>
 

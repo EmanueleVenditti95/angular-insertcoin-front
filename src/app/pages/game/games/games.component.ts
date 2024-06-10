@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
-import { GameDetailComponent } from '../game-detail/game-detail.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,20 +32,15 @@ export class GamesComponent implements OnInit {
     })
   }
 
-  deleteGame(id?:number): void {
-    this.gameService.deleteGame(id).subscribe(
-      response => {
-        console.log('Gioco cancellato:', response);
-        this.games = this.games?.filter(game => game.id !== id);
-      },
-      error => {
-        console.error('Errore durante la cancellazione:', error);
-      }
-    );
-  }
-
-  editGame(id?:number) :void {
-
-  }
-    
+  // deleteGame(id?:number): void {
+  //   this.gameService.deleteGame(id).subscribe(
+  //     response => {
+  //       console.log('Gioco cancellato:', response);
+  //       this.games = this.games?.filter(game => game.id !== id);
+  //     },
+  //     error => {
+  //       console.error('Errore durante la cancellazione:', error);
+  //     }
+  //   );
+  // }   
 }
