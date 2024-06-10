@@ -23,6 +23,7 @@ export class GameEditComponent {
     nome: new FormControl('', Validators.required),
     descrizione: new FormControl(''),
     video: new FormControl(''),
+    img : new FormControl('')
   });
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class GameEditComponent {
               nome: this.game.nome,
               descrizione: this.game.descrizione,
               video: this.game.video,
+              img: this.game.img
             });
           },
           error: err => {
@@ -61,7 +63,8 @@ export class GameEditComponent {
         id:this.id,
         nome: formValue.nome ?? '',
         descrizione: formValue.descrizione ?? '',
-        video: formValue.video ?? ''
+        video: formValue.video ?? '',
+        img: formValue.img ?? ''
       };
 
       this.gameService.saveGame(this.game).subscribe({

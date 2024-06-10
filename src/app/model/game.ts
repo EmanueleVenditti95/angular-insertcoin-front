@@ -3,5 +3,6 @@ export class Game {
     nome?: string;
     descrizione?: string;
     video?: string;
+    img?: string;
     id_categoria?: number;
 }

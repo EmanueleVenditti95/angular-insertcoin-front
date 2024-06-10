@@ -27,6 +27,7 @@ export class GameCreationComponent {
     nome: new FormControl('', Validators.required),
     descrizione: new FormControl(''),
     video: new FormControl(''),
+    img : new FormControl('')
   });
 
   onSubmit() {
@@ -35,7 +36,8 @@ export class GameCreationComponent {
       this.game = {
         nome: formValue.nome ?? '', // Usa una stringa vuota se formValue.nome è null o undefined
         descrizione: formValue.descrizione ?? '',
-        video: formValue.video ?? ''
+        video: formValue.video ?? '',
+        img: formValue.img ?? ''
       };
       
       this.gameService.addGame(this.game).subscribe({
@@ -48,7 +50,5 @@ export class GameCreationComponent {
     } else {
       console.error('Form non valido');
     } 
-  }
-
-  
+  } 
 }
