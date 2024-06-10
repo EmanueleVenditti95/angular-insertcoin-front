@@ -1,12 +1,18 @@
 //COLOR VARIABLES
 $header: #171D25;
 $light: #F8F4F8;
+$light-grey: #C5C3C0;
+$background-body: #1A2A3B;
+$dark-blue:#316282;
+$light-blue: #549EC9;
 
-//UTILITIES
-.page-wrapper {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 1.5em;
+.main {
+    background-color: $background-body;
+    min-height: 90vh;
+}
+
+img {
+    max-width: 100%;
 }
 
 a {
@@ -16,7 +22,11 @@ a {
 
 header {
     background-color: $header;
-    color: $light;
+    color: $light-grey;
+    a:hover {
+        color: $light;
+        cursor: pointer;
+    }
 }
 
 .header-bar {

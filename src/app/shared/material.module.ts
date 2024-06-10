@@ -5,6 +5,9 @@ import { MatListModule } from '@angular/material/list';
 import {MatInput, MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 @NgModule({
@@ -16,7 +19,9 @@ import {MatMenu, MatMenuModule} from '@angular/material/menu';
     MatInput,
     MatInputModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -25,7 +30,9 @@ import {MatMenu, MatMenuModule} from '@angular/material/menu';
     MatInput,
     MatInputModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 

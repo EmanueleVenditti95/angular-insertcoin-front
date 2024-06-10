@@ -1,3 +1,31 @@
+@use '../../../navigation/navigation.component.scss' as general;
+
+.card-game {
+    background-color: general.$header !important;
+    border-radius: 10px;
+    color: general.$light;
+    aspect-ratio: 1.1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    a{
+        text-decoration: none !important;
+    }
+    button {
+        background-color: general.$dark-blue;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        color: general.$light-blue;
+        font-size: smaller;
+        &:hover {
+            background-color: general.$light-blue;
+            color: general.$light;
+        }
+    }
+}
+
 .extract {
     max-width: 100%;
     white-space: nowrap;

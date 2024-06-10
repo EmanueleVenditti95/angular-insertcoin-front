@@ -7,7 +7,9 @@ import {Router} from "@angular/router"
 @Component({
   selector: 'app-game-creation',
   templateUrl: './game-creation.component.html',
-  styleUrl: './game-creation.component.scss'
+  styleUrls: [
+    './game-creation.component.scss'
+  ]
 })
 
 
