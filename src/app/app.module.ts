@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
 import { CategoriesComponent } from './pages/category/categories/categories.component'; // Importa ReactiveFormsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GameDetailComponent,
     GameCreationComponent,
     GameEditComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,

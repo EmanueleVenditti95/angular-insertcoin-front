@@ -1,5 +1,9 @@
+<button routerLink="/games"><i class="fa-solid fa-arrow-left"></i></button>
 <button routerLink="/games/edit/{{game.id}}">Modifica gioco</button>
-<button (click)="deleteGame(game.id)">Cancella gioco</button>
+<button (click)="openDialog()">
+    Cancella gioco
+</button> 
+<!-- (click)="deleteGame(game.id)" -->
 
 <h3>{{game.nome}}</h3>
 <p>{{game.id_categoria}}</p>

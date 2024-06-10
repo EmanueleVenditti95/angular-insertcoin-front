@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Cancella gioco</h2>
+<mat-dialog-content>
+  Sei sicuro di voler cancellare "{{data.game.nome}}"?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button (click)="deleteGame(data.game.id)" mat-dialog-close>Si</button>
+</mat-dialog-actions>

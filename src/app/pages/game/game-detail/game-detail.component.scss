@@ -1,0 +1,14 @@
+@use '../../../navigation/navigation.component.scss' as general;
+
+button {
+    background-color: general.$dark-blue;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: general.$light-blue;
+    font-size: smaller;
+    &:hover {
+        background-color: general.$light-blue;
+        color: general.$light;
+    }
+}

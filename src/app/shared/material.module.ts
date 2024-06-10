@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -21,7 +22,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -32,7 +34,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 

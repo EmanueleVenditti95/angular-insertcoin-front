@@ -4,7 +4,9 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { Game } from '../../../model/game';
 import { GameService } from '../../../services/game.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { log } from 'console';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteModalComponent } from '../../../delete-modal/delete-modal.component';
+
 
 @Component({
   selector: 'app-game-detail',
@@ -21,7 +23,8 @@ export class GameDetailComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly gameService: GameService,
     private readonly router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -52,16 +55,23 @@ export class GameDetailComponent implements OnInit {
     })
   }
 
-  deleteGame(id?:number): void {
-    this.gameService.deleteGame(id).subscribe(
-      response => {
-        console.log('Gioco cancellato:', response);
-        this.router.navigate(['']);
-      },
-      error => {
-        console.error('Errore durante la cancellazione:', error);
-      }
-    );
+  // deleteGame(id?:number): void {
+  //   this.gameService.deleteGame(id).subscribe(
+  //     response => {
+  //       console.log('Gioco cancellato:', response);
+  //       this.router.navigate(['']);
+  //     },
+  //     error => {
+  //       console.error('Errore durante la cancellazione:', error);
+  //     }
+  //   );
+  // }
+
+  openDialog(): void {
+    this.dialog.open(DeleteModalComponent, {
+      data: {game:this.game},
+      width: '500px',
+    });
   }
 
   // ngOnInit(): void {
