@@ -8,7 +8,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     a{
         text-decoration: none !important;
     }
@@ -16,16 +16,16 @@
         background-color: general.$dark-blue;
         border: none;
         border-radius: 5px;
-        margin-right: 10px;
         color: general.$light-blue;
-        font-size: smaller;
+        font-size:x-small;
+        margin-top: 15px;
         &:hover {
             background-color: general.$light-blue;
             color: general.$light;
         }
     }
     img {
-        aspect-ratio: 1.1;
-        object-fit: contain;
+        aspect-ratio: 1.2;
+        object-fit:fill;
     }
 }

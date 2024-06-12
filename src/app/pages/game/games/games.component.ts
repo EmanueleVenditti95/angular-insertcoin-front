@@ -29,6 +29,7 @@ export class GamesComponent implements OnInit {
   getGames() {
     this.gameService.getGames().subscribe((data: any) => {
       this.games = data._embedded.giochi;
+      console.log(this.games);      
     })
   }
 

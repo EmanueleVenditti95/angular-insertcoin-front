@@ -22,6 +22,14 @@
         <textarea matInput formControlName="descrizione"></textarea>
     </mat-form-field>
 
+    <mat-form-field>
+        <mat-label>Assegna una categoria</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let c of categories" value="option1">{{c.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+
     <button mat-flat-button color="primary" type="submit">Modifica</button>
   
   </form>

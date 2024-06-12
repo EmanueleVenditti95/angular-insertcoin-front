@@ -8,6 +8,7 @@ import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -23,7 +24,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
     CommonModule,
@@ -35,7 +37,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ]
 })
 

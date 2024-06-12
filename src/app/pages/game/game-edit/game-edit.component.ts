@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Game } from '../../../model/game';
 import { GameService } from '../../../services/game.service';
+import { CategoryService } from '../../../services/category.service';
 import { ActivatedRoute, Router } from "@angular/router"
+import { Category } from '../../../model/category';
 @Component({
   selector: 'app-game-edit',
   templateUrl: './game-edit.component.html',
@@ -12,10 +14,12 @@ export class GameEditComponent {
 
   constructor(
     private readonly gameService: GameService,
+    private readonly categoryService: CategoryService,
     private router: Router,
     private readonly route: ActivatedRoute,
   ) { }
 
+  categories?: Category[];
   game: Game = {};
   id: number = 0;
   error = "";
@@ -28,8 +32,7 @@ export class GameEditComponent {
 
   ngOnInit(): void {
     this.getGame();
-    console.log(this.route.params);
-    
+    this.getCategories();
   }
 
   getGame() {
@@ -53,6 +56,14 @@ export class GameEditComponent {
         })
       },
       error: err => console.error('Observable emitted an error: ', err)
+    })
+  }
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe((data:any) => {
+      this.categories = data._embedded.categorie;
+      console.log(this.categories);
+      
     })
   }
 
