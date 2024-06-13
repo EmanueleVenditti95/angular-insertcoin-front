@@ -22,9 +22,14 @@
         <textarea matInput formControlName="descrizione"></textarea>
     </mat-form-field>
 
-<!-- 
-    <label for="id_categoria">Categoria: </label>
-    <input id="id_categoria" type="number" formControlName="id_categoria" required> -->
+    <mat-form-field>
+        <mat-label>Assegna una categoria</mat-label>
+        <mat-select formControlName="categoria">
+            @for (c of categories; track c) {
+                <mat-option [value]="c.id">{{c.nome}}</mat-option>
+            }
+        </mat-select>
+      </mat-form-field>
 
     <button mat-flat-button color="primary" type="submit">Aggiungi</button>
   

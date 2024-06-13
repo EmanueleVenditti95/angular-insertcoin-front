@@ -19,11 +19,12 @@ export class GameEditComponent {
     private readonly route: ActivatedRoute,
   ) { }
 
-  categories?: Category[];
+  categories: Category[] = [];
   selectedCategory?: number;
   game: Game = {};
   id: number = 0;
   error = "";
+
   requestForm = new FormGroup({
     nome: new FormControl('', Validators.required),
     descrizione: new FormControl(''),
@@ -78,7 +79,8 @@ export class GameEditComponent {
         nome: formValue.nome ?? '',
         descrizione: formValue.descrizione ?? '',
         video: formValue.video ?? '',
-        img: formValue.img ?? ''
+        img: formValue.img ?? '',
+        categoria: this.categories.find(categoria => categoria.id === formValue.categoria)
       };
 
       this.gameService.saveGame(this.game).subscribe({
