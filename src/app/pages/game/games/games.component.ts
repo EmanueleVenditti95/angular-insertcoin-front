@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class GamesComponent implements OnInit {
 
-  games?: Game[];
+  games: Game[] = [];
 
   // Il costruttore prende un'istanza di GameService come dipendenza, utilizzando la Dependency Injection di Angular.
   // Questo servizio sarà usato per recuperare i dati dei giochi.
@@ -28,8 +28,7 @@ export class GamesComponent implements OnInit {
 
   getGames() {
     this.gameService.getGames().subscribe((data: any) => {
-      this.games = data._embedded.giochi;
-      console.log(this.games);      
+      this.games = data.giochi;  
     })
   }
 

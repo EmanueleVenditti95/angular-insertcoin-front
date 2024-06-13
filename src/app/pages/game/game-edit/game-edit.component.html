@@ -24,8 +24,10 @@
 
     <mat-form-field>
         <mat-label>Assegna una categoria</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let c of categories" value="option1">{{c.nome}}</mat-option>
+        <mat-select [(value)]="selectedCategory">
+            @for (c of categories; track c) {
+                <mat-option [value]="c.id">{{c.nome}}</mat-option>
+            }
         </mat-select>
       </mat-form-field>
       

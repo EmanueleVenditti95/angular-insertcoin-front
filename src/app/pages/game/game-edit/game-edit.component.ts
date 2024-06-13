@@ -20,6 +20,7 @@ export class GameEditComponent {
   ) { }
 
   categories?: Category[];
+  selectedCategory?: number;
   game: Game = {};
   id: number = 0;
   error = "";
@@ -27,12 +28,13 @@ export class GameEditComponent {
     nome: new FormControl('', Validators.required),
     descrizione: new FormControl(''),
     video: new FormControl(''),
-    img : new FormControl('')
+    img : new FormControl(''),
+    categoria : new FormControl()
   });
 
   ngOnInit(): void {
     this.getGame();
-    this.getCategories();
+    this.getCategories()  
   }
 
   getGame() {
@@ -40,13 +42,16 @@ export class GameEditComponent {
       next: value => {
         this.id = value['id'];
         this.gameService.getGame(this.id).subscribe({
-          next: g => {
-            this.game = g;
+          next: data => {
+            this.game = data.gioco;
+            this.selectedCategory = this.game.categoria?.id;
+            
             this.requestForm.patchValue({
               nome: this.game.nome,
               descrizione: this.game.descrizione,
               video: this.game.video,
-              img: this.game.img
+              img: this.game.img,
+              categoria:this.game.categoria?.id 
             });
           },
           error: err => {
@@ -61,9 +66,7 @@ export class GameEditComponent {
 
   getCategories() {
     this.categoryService.getCategories().subscribe((data:any) => {
-      this.categories = data._embedded.categorie;
-      console.log(this.categories);
-      
+      this.categories = data._embedded.categorie;     
     })
   }
 
