@@ -24,7 +24,7 @@
 
     <mat-form-field>
         <mat-label>Assegna una categoria</mat-label>
-        <mat-select formControlName="categoria">
+        <mat-select formControlName="categoria" required>
             @for (c of categories; track c) {
                 <mat-option [value]="c.id">{{c.nome}}</mat-option>
             }

@@ -1,14 +1,22 @@
 <header>
     <div class="container d-flex justify-content-between align-items-center header-bar">
-            <div class="col-auto">
-                <span>LOGO</span>
+            <div routerLink="/" class="col-auto d-flex align-items-center logo">
+                <i class="fa-solid fa-gamepad icon"></i>
+                <span class="text-center">INSERTCOIN</span>
             </div>
             <div class="col-grow-1">
-                <a  [matMenuTriggerFor]="menu">Giochi</a>
-                <mat-menu #menu="matMenu">
+                <a [matMenuTriggerFor]="giochi" class="ms-2">Giochi</a>
+                <mat-menu #giochi="matMenu">
                   <button mat-menu-item routerLink="/">Lista giochi</button>
                   <button mat-menu-item routerLink="/games/add">Aggiungi</button>
-                </mat-menu>               
+                </mat-menu>
+                
+                <a [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
+                <mat-menu #categorie="matMenu">
+                    @for (c of categories; track c) {
+                        <button mat-menu-item routerLink="/">{{c.nome}}</button>
+                    }
+                </mat-menu>   
             </div>
     </div>
 </header>

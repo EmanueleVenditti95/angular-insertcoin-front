@@ -73,21 +73,4 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
-  // ngOnInit(): void {
-  //   console.log("SONO ON INIT DA ALTRA PAGINA");
-  //   this.route.params.subscribe(
-  //     // switchMap(params => this.gameService.getGame(params['id'])),
-  //     // map((game: Game) => this.game = game),
-  //     value =>{
-  //       console.log("SONO IN PARAMS");
-  //       let prova: number = value['id'];
-  //       console.log("CHIAMO SERVICE");
-  //       this.gameService.getGame(prova).subscribe(g => {
-  //         console.log("SONO IN SERVICE");
-  //         this.game = g
-  //       })
-  //       console.log("SERVICE END");
-  //     });
-  // }
-
 }
