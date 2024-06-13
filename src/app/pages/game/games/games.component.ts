@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -11,19 +11,27 @@ import { Router } from '@angular/router';
 
 export class GamesComponent implements OnInit {
 
+  categoryId?: number;
   games: Game[] = [];
 
-  // Il costruttore prende un'istanza di GameService come dipendenza, utilizzando la Dependency Injection di Angular.
-  // Questo servizio sarà usato per recuperare i dati dei giochi.
   constructor(
     private gameService: GameService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   // Questo metodo viene eseguito al momento dell'inizializzazione del componente. 
   // Utilizza il gameService per ottenere i giochi.getGames() restituisce un Observable, al quale ci si sottoscrive (subscribe).
   ngOnInit(): void {
-    this.getGames();
+
+    this.route.paramMap.subscribe(params => {
+      this.categoryId = +params.get('categoryId')!;    
+      if (this.categoryId !== null && this.categoryId > 0) {
+        this.getGamesByCategoryId(this.categoryId);
+      } else {
+        this.getGames();
+      }
+    });
   }
 
   getGames() {
@@ -32,15 +40,10 @@ export class GamesComponent implements OnInit {
     })
   }
 
-  // deleteGame(id?:number): void {
-  //   this.gameService.deleteGame(id).subscribe(
-  //     response => {
-  //       console.log('Gioco cancellato:', response);
-  //       this.games = this.games?.filter(game => game.id !== id);
-  //     },
-  //     error => {
-  //       console.error('Errore durante la cancellazione:', error);
-  //     }
-  //   );
-  // }   
+  getGamesByCategoryId(id: number) {
+    this.gameService.getGamesByCategoryId(id).subscribe((data: any) => {
+      this.games = data.giochi;  
+    })
+  }
+
 }

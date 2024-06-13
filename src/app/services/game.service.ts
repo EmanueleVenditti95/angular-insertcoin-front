@@ -26,6 +26,10 @@ export class GameService {
     return this.http.get<Game[]>(this.baseUrl);
   }
 
+  getGamesByCategoryId(id: number) {
+    return this.http.get<Game[]>(this.baseUrl + "/sort/" + id);
+  }
+
   getGame(id: number): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/" + id);
   }

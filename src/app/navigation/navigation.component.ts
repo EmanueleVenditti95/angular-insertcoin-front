@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
 import { Category } from '../model/category';
@@ -8,6 +8,7 @@ import { Category } from '../model/category';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
+
 export class NavigationComponent {
 
   constructor(
@@ -16,14 +17,18 @@ export class NavigationComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getCategories()  
+    this.getCategories()      
   }
 
   categories: Category[] = [];
-  
+
   getCategories() {
     this.categoryService.getCategories().subscribe((data:any) => {
       this.categories = data._embedded.categorie;     
     })
+  }
+
+  selectCategory(id?: number) {
+    this.router.navigate(['/games/category/', id]); // Naviga a GamesComponent con il parametro categoryId
   }
 }

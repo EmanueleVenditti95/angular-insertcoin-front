@@ -13,9 +13,7 @@
                 
                 <a [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
                 <mat-menu #categorie="matMenu">
-                    @for (c of categories; track c) {
-                        <button mat-menu-item routerLink="/">{{c.nome}}</button>
-                    }
+                    <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
                 </mat-menu>   
             </div>
     </div>
