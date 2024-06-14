@@ -35,6 +35,11 @@ const routes: Routes = [
       {
         path: 'games/category/:categoryId',
         component: GamesComponent
+      },
+      {
+        path: 'games/category/:categoryId/game/:id',
+        redirectTo:'games/game/:id',
+        pathMatch:'full'
       }
     ]
   }
