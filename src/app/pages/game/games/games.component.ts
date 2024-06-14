@@ -13,6 +13,7 @@ export class GamesComponent implements OnInit {
 
   categoryId?: number;
   games: Game[] = [];
+  pageTitle: String = '';
 
   constructor(
     private gameService: GameService,
@@ -27,9 +28,10 @@ export class GamesComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.categoryId = +params.get('categoryId')!;    
       if (this.categoryId !== null && this.categoryId > 0) {
-        this.getGamesByCategoryId(this.categoryId);
+        const category = this.getGamesByCategoryId(this.categoryId);
       } else {
         this.getGames();
+        this.pageTitle = 'Lista giochi: '
       }
     });
   }
@@ -42,7 +44,8 @@ export class GamesComponent implements OnInit {
 
   getGamesByCategoryId(id: number) {
     this.gameService.getGamesByCategoryId(id).subscribe((data: any) => {
-      this.games = data.giochi;  
+      this.games = data.giochi;
+      this.pageTitle = 'Lista giochi ' + this.games[0].categoria?.nome + ':';          
     })
   }
 

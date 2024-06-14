@@ -5,6 +5,14 @@ h3 {
     margin-top: 22.5px;
 }
 
+.category-badge {
+    background-color: general.$dark-blue;
+    border-radius: 5px;
+    color: general.$light-blue;
+    font-size: smaller;
+    padding: 6px;
+}
+
 button {
     background-color: general.$dark-blue;
     border: none;

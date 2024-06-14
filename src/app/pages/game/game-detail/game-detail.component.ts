@@ -54,18 +54,6 @@ export class GameDetailComponent implements OnInit {
     })
   }
 
-  // deleteGame(id?:number): void {
-  //   this.gameService.deleteGame(id).subscribe(
-  //     response => {
-  //       console.log('Gioco cancellato:', response);
-  //       this.router.navigate(['']);
-  //     },
-  //     error => {
-  //       console.error('Errore durante la cancellazione:', error);
-  //     }
-  //   );
-  // }
-
   openDialog(): void {
     this.dialog.open(DeleteModalComponent, {
       data: {game:this.game},

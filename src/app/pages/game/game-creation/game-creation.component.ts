@@ -32,7 +32,7 @@ export class GameCreationComponent {
     descrizione: new FormControl(''),
     video: new FormControl(''),
     img : new FormControl(''),
-    categoria : new FormControl(Validators.required)
+    categoria : new FormControl(null,Validators.required)
   });
 
   ngOnInit(): void {
