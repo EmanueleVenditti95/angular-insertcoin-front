@@ -5,6 +5,7 @@ import { GamesComponent } from './pages/game/games/games.component';
 import { GameDetailComponent } from './pages/game/game-detail/game-detail.component';
 import { GameCreationComponent } from './pages/game/game-creation/game-creation.component'; 
 import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 const routes: Routes = [
   {
@@ -29,8 +30,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'games',
-        pathMatch: 'full'
+        component: HomepageComponent
       },
       {
         path: 'games/category/:categoryId',
