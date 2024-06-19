@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core'; //necessario per definire un servizio in Angular.
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map, throwError } from 'rxjs'; // Observable rappresenta un flusso di dati che possono essere asincroni.
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'; // Observable rappresenta un flusso di dati che possono essere asincroni.
 import { Game } from '../model/game';
-import axios from 'axios';
 
 // Questo decoratore configura la classe GameService come un servizio che può essere iniettato in altre parti dell'applicazione.
 // Il parametro providedIn: 'root' indica che il servizio è un singleton e viene fornito a livello di root,

@@ -21,8 +21,6 @@ export class GamesComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  // Questo metodo viene eseguito al momento dell'inizializzazione del componente. 
-  // Utilizza il gameService per ottenere i giochi.getGames() restituisce un Observable, al quale ci si sottoscrive (subscribe).
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {

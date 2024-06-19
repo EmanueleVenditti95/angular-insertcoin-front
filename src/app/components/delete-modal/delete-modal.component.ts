@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Game } from '../model/game';
+import { Game } from '../../model/game';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { GameService } from '../services/game.service';
+import { GameService } from '../../services/game.service';
 import { Router } from '@angular/router';
 
 @Component({

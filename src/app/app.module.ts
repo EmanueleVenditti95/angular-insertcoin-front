@@ -13,8 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
 import { CategoriesComponent } from './pages/category/categories/categories.component'; // Importa ReactiveFormsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     GameEditComponent,
     CategoriesComponent,
     DeleteModalComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
