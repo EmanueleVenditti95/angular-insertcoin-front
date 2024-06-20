@@ -1,4 +1,4 @@
-<form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="d-flex flex-column">
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="d-flex flex-column" *ngIf="!isLogged">
 
     <mat-form-field>
         <mat-label>Email</mat-label>
@@ -12,4 +12,7 @@
     
     <button mat-flat-button color="primary" type="submit">Accedi</button>
   
-  </form>
+</form>
+
+<h2 *ngIf="isLogged">{{username}}</h2>
+<button *ngIf="isLogged" (click)="logOut()">LogOut</button>
