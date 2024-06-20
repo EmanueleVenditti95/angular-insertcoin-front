@@ -8,4 +8,19 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomepageComponent {
 
+  constructor(private readonly service : AuthService) {}
+  
+  isLogged?:boolean;
+  username?:string;
+
+  ngOnInit(): void {
+    this.service.isLoggedIn().subscribe(loggedIn => {
+      this.isLogged = loggedIn;
+      if (loggedIn) {
+        this.username = localStorage.getItem("username") as string;
+      } else {
+        this.username = '';
+      }
+    });
+  }
 }

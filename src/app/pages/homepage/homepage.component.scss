@@ -17,12 +17,11 @@
     height: 100%;
     background-image: url("../../../assets/images/giochi.webp");
     background-size: cover;
-    opacity: 0.5; /* semitrasparente */
+    opacity: 0.5;
     z-index: 0;
 }
 
 .content {
     position: relative;
     z-index: 1;
-    color: white; /* Aggiungi colore del testo per contrastare lo sfondo */
 }
