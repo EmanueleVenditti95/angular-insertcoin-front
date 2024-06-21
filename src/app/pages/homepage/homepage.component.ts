@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -8,7 +9,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomepageComponent {
 
-  constructor(private readonly service : AuthService) {}
+  constructor(
+    private readonly service : AuthService,
+    public router:Router
+  ) {}
   
   isLogged?:boolean;
   username?:string;
@@ -22,5 +26,10 @@ export class HomepageComponent {
         this.username = '';
       }
     });
+  }
+
+  public logOut() : void {   
+    this.service.logOut();
+    this.router.navigate(['/']); 
   }
 }

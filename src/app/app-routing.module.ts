@@ -30,7 +30,17 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: HomepageComponent
+        component: HomepageComponent,
+        children: [
+        {
+          path: 'login',
+          component: HomepageComponent
+        },
+        {
+          path: 'register',
+          component: HomepageComponent
+        }
+        ]
       },
       {
         path: 'games/category/:categoryId',

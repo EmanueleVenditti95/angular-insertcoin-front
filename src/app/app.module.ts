@@ -17,6 +17,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { TokenInterceptor } from './token-interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TokenInterceptor } from './token-interceptor';
     CategoriesComponent,
     DeleteModalComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

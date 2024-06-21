@@ -5,13 +5,17 @@
                 <span class="text-center">INSERTCOIN</span>
             </div>
             <div class="col-grow-1">
-                <a [matMenuTriggerFor]="giochi" class="ms-2">Giochi</a>
+                <a *ngIf="!isLogged" routerLink="/login">Accedi</a>
+
+                <a *ngIf="!isLogged" routerLink="/register">Registrati</a>
+
+                <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>
                 <mat-menu #giochi="matMenu">
                   <button mat-menu-item routerLink="/games">Lista giochi</button>
                   <button mat-menu-item routerLink="/games/add">Aggiungi</button>
                 </mat-menu>
                 
-                <a [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
+                <a *ngIf="isLogged" [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
                 <mat-menu #categorie="matMenu">
                     <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
                 </mat-menu>   

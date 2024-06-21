@@ -1,7 +1,22 @@
 <div class="main">
     <div class="content">
-        <h1 *ngIf="!isLogged">Login</h1>
-        <h1 *ngIf="isLogged">Benvenuto</h1>
-        <app-login></app-login>
+        <div *ngIf="!isLogged && router.url === '/'">
+            <h1>Benvenuto su InsertCoin</h1>
+            <p>
+                Per visualizzare le raccolte di videogiochi 
+                <a routerLink="/login">Accedi</a>
+                o
+                <a routerLink="/register">Registrati</a>
+            </p>
+        </div>
+
+        <div *ngIf="isLogged">
+            <h1>Benvenuto</h1>
+            <h2>{{username}}</h2>
+        </div>
+
+        <app-login *ngIf="router.url === '/login'"></app-login>
+        <app-register *ngIf="router.url === '/register'"></app-register>
+        <button *ngIf="isLogged" (click)="logOut()">LogOut</button>
     </div>
 </div>

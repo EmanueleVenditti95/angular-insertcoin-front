@@ -55,9 +55,4 @@ export class LoginComponent {
      } 
     console.log(localStorage);  
   } 
-
-  public logOut() : void {   
-    this.service.logOut();
-    this.router.navigate(['/']); 
-  }
 }

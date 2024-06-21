@@ -24,6 +24,9 @@ a {
 header {
     background-color: $header;
     color: $light-grey;
+    a {
+        margin-left: 10px;
+    }
     a:hover {
         color: $light;
         cursor: pointer;
