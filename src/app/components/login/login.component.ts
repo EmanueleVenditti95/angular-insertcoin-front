@@ -17,7 +17,7 @@ export class LoginComponent {
 
 
   requestForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
 
@@ -35,14 +35,14 @@ export class LoginComponent {
   onSubmit() : void{
      if (this.requestForm.valid) {
       const formValue = this.requestForm.value;
-      const email = formValue.email as string;
+      const username = formValue.username as string;
       const password = formValue.password as string;
 
-      this.service.logIn(email,password).subscribe(response => {
+      this.service.logIn(username,password).subscribe(response => {
          const token = response.headers.get('access_token');
         
          if (token) {
-            this.service.saveUser(token, email);
+            this.service.saveUser(token, username);
          } else {
            console.error('Token not found in response');
          }       
