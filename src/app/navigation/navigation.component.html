@@ -18,7 +18,8 @@
                 <a *ngIf="isLogged" [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
                 <mat-menu #categorie="matMenu">
                     <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
-                </mat-menu>   
+                </mat-menu>
+                <a *ngIf="isLogged" (click)="logOut()">Logout</a>   
             </div>
     </div>
 </header>

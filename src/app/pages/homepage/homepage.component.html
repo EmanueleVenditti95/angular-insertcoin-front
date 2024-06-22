@@ -17,6 +17,5 @@
 
         <app-login *ngIf="router.url === '/login'"></app-login>
         <app-register *ngIf="router.url === '/register'"></app-register>
-        <button *ngIf="isLogged" (click)="logOut()">Logout</button>
     </div>
 </div>

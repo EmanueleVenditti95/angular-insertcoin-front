@@ -6,13 +6,15 @@
 
 <h3>{{game.nome}}</h3>
 <p> <span class="category-badge">{{game.categoria?.nome}}</span></p>
-<p>{{game.descrizione}}</p>
-<div *ngIf="game.video">
-    <iframe width="100%" height="800px"
-            [src]="getVideoUrl(game)"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
+<div class="d-flex">
+    <p class="col-6 pe-5">{{game.descrizione}}</p>
+    <div *ngIf="game.video" class="col-6">
+        <iframe width="100%" height="500px"
+                [src]="getVideoUrl(game)"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+</div>
 </div>
 <p>{{error?.message ? "Gioco non trovato" : ""}}</p>
 

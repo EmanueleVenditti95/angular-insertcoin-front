@@ -28,6 +28,7 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.requestForm.valid) {
+
       const formValue = this.requestForm.value;
       this.user.username = formValue.username as string;
       this.user.email = formValue.email as string;
@@ -37,16 +38,9 @@ export class RegisterComponent {
         next: data => {
           console.log("Utente creato", data);
           this.registeredUser = data;
-        },
 
-
-        error: error => console.error("Errore durante la creazione dell'utente", error),
-
-
-        complete: () => {
-
-          console.log('Attempting login with:', this.user.username, this.user.password);
-          this.service.logIn(this.registeredUser.username, this.registeredUser.password)
+          console.log('Attempting login with:', this.registeredUser.username, this.user.password);
+          this.service.logIn(this.registeredUser.username, this.user.password)
             .subscribe(response => {
               const token = response.headers.get('access_token');
               if (token) {
@@ -54,14 +48,16 @@ export class RegisterComponent {
                 this.router.navigate(['/']);
               }
               else console.error('Token not found in response');
-              },
+            },
               error => {
                 console.error('Login failed', error);
                 console.log('Credenziali inserite:', this.registeredUser.username, this.registeredUser.password);
               }
             )
-          }
+        },
+        error: error => console.error("Errore durante la creazione dell'utente", error),
       });
+
     } else console.error("Form non valido");
   }
 

@@ -40,4 +40,9 @@ export class NavigationComponent {
   selectCategory(id?: number) {
     this.router.navigate(['/games/category/', id]); // Naviga a GamesComponent con il parametro categoryId
   }
+
+  public logOut() : void {   
+    this.authService.logOut();
+    this.router.navigate(['/']); 
+  }
 }

@@ -27,9 +27,4 @@ export class HomepageComponent {
       }
     });
   }
-
-  public logOut() : void {   
-    this.service.logOut();
-    this.router.navigate(['/']); 
-  }
 }
