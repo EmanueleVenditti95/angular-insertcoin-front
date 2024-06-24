@@ -21,6 +21,8 @@ export class NavigationComponent {
   isLogged?:boolean;
   categories: Category[] = [];
   username: string = "";
+  authorities? : [];
+  isAdmin? : boolean;
 
   ngOnInit(): void {
 
@@ -29,6 +31,7 @@ export class NavigationComponent {
       if (loggedIn) {
         this.getCategories();
         this.username = this.authService?.getUsername() as string;
+        this.authService.getUser(this.username).subscribe(user => this.isAdmin = user.ruoli?.some(e => e.nome === 'ROLE_ADMIN'));
       }       
       else {
         this.categories = [];
@@ -52,4 +55,5 @@ export class NavigationComponent {
     this.username = "";
     this.router.navigate(['/']); 
   }
+
 }
