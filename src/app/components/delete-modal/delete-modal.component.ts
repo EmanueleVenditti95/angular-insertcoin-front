@@ -21,7 +21,7 @@ export class DeleteModalComponent{
      this.gameService.deleteGame(id).subscribe(
        response => {
          console.log('Gioco cancellato:', response);
-         this.router.navigate(['']);
+         this.router.navigate(['/games']);
        },
        error => {
          console.error('Errore durante la cancellazione:', error);

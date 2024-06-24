@@ -20,14 +20,20 @@ export class NavigationComponent {
 
   isLogged?:boolean;
   categories: Category[] = [];
+  username: string = "";
 
   ngOnInit(): void {
+
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLogged = loggedIn;     
-      if (loggedIn)       
+      if (loggedIn) {
         this.getCategories();
-      else
+        this.username = this.authService?.getUsername() as string;
+      }       
+      else {
         this.categories = [];
+        this.username = "";
+      }
     });      
   }
 
@@ -43,6 +49,7 @@ export class NavigationComponent {
 
   public logOut() : void {   
     this.authService.logOut();
+    this.username = "";
     this.router.navigate(['/']); 
   }
 }

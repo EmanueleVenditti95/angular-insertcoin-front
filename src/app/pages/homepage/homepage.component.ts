@@ -22,6 +22,7 @@ export class HomepageComponent {
       this.isLogged = loggedIn;
       if (loggedIn) {
         this.username = localStorage.getItem("username") as string;
+        this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
       } else {
         this.username = '';
       }

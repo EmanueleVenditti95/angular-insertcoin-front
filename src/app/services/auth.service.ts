@@ -40,6 +40,11 @@ export class AuthService {
     this.loggedIn.next(true);
   }
 
+  getUsername() :string | null {
+    const username = localStorage.getItem("username");
+    return username;
+  }
+
   getToken(): string | null {
     return this.tokenStorage.getToken();
   }

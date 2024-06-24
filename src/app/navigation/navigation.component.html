@@ -19,7 +19,10 @@
                 <mat-menu #categorie="matMenu">
                     <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
                 </mat-menu>
-                <a *ngIf="isLogged" (click)="logOut()">Logout</a>   
+                <a *ngIf="isLogged" [matMenuTriggerFor]="user">{{username}}</a>
+                <mat-menu #user="matMenu">
+                    <button mat-menu-item (click)="logOut()">Logout</button>
+                </mat-menu>   
             </div>
     </div>
 </header>
