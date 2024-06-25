@@ -33,6 +33,10 @@ export class GameService {
     return this.http.get<any>(this.baseUrl + "/" + id);
   }
 
+  searchGame(gameName : string): Observable<Game[]> {
+    return this.http.get<Game[]>(this.baseUrl + "/cerca?nomeGioco=" + gameName);
+  }
+
   addGame(game: Game) {
     return this.http.post(this.baseUrl + "/inserimento", game);
   }

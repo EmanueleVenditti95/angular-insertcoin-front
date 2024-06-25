@@ -5,8 +5,15 @@
 
 <div class="row align-items-center">
     <div class="col-auto searchbar">
-        <i class="fa-solid fa-magnifying-glass searchglass"></i>
-        <input #gameName inputmode="search" placeholder="Cerca gioco" type="search" (keyup.enter)="searchGames(gameName.value)"/>
+        <i class="fa-solid fa-magnifying-glass searchglass" (click)="searchGames()"></i>
+        <input 
+            [(ngModel)]="gameName" 
+            inputmode="search" 
+            placeholder="Cerca gioco"
+            type="search" 
+            (keyup.enter)="searchGames()"
+            routerLink="/games/search"
+        />
     </div>
 </div>
 

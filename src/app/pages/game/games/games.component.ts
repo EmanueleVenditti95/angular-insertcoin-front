@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,7 @@ export class GamesComponent implements OnInit {
   games: Game[] = [];
   pageTitle: String = '';
   urlCategory?: string;
+  gameName: string = "";
 
   constructor(
     private gameService: GameService,
@@ -49,9 +50,13 @@ export class GamesComponent implements OnInit {
     })
   }
 
-  searchGames(gameName : string) {
-    console.log(gameName);
-    
+  searchGames() {
+    this.gameService.searchGame(this.gameName).subscribe((data : any) => {
+      this.games = data.giochi;
+      const input = this.gameName;
+      this.pageTitle = 'Risultati per "' + input + '" :';
+      this.gameName = ""; 
+    })   
   }
 
 }

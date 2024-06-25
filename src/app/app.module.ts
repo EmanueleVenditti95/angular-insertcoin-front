@@ -9,7 +9,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { GamesComponent } from './pages/game/games/games.component';
 import { GameDetailComponent } from './pages/game/game-detail/game-detail.component';
 import { GameCreationComponent } from './pages/game/game-creation/game-creation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GameEditComponent } from './pages/game/game-edit/game-edit.component';
 import { CategoriesComponent } from './pages/category/categories/categories.component'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
     DeleteModalComponent,
     HomepageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,8 @@ import { RegisterComponent } from './components/register/register.component';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   exports: [
     MaterialModule,
