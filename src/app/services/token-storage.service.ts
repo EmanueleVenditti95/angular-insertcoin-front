@@ -26,6 +26,10 @@ export class TokenStorageService {
     }
   }
 
+  isAdmin() {
+    
+  }
+
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }

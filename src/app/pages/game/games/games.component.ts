@@ -14,11 +14,12 @@ export class GamesComponent implements OnInit {
   categoryId?: number;
   games: Game[] = [];
   pageTitle: String = '';
+  urlCategory?: string;
 
   constructor(
     private gameService: GameService,
-    private router: Router,
-    private route: ActivatedRoute
+    public router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class GamesComponent implements OnInit {
       this.categoryId = +params.get('categoryId')!;    
       if (this.categoryId !== null && this.categoryId > 0) {
         const category = this.getGamesByCategoryId(this.categoryId);
+        this.urlCategory = `/games/category/${this.categoryId}`
       } else {
         this.getGames();
         this.pageTitle = 'Lista giochi: '

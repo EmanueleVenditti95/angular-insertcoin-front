@@ -5,6 +5,8 @@ import { GameService } from '../../../services/game.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteModalComponent } from '../../../components/delete-modal/delete-modal.component';
+import { AuthService } from '../../../services/auth.service';
+import { NavigationComponent } from '../../../navigation/navigation.component';
 
 
 @Component({
@@ -17,19 +19,26 @@ export class GameDetailComponent implements OnInit {
   game: Game = {};
   id: number = 0;
   error?: Error;
+  isAdmin?: boolean;
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly gameService: GameService,
-    private readonly router: Router,
+    private readonly navComponent: NavigationComponent,
     private sanitizer: DomSanitizer,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.getGame();
-  }
 
+    if(localStorage.getItem('username') === 'admin')
+      this.isAdmin = true;
+    else 
+      this.isAdmin = false;
+
+    console.log(localStorage);  
+  }
 
   getVideoUrl(game?: Game): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${game?.video}`);

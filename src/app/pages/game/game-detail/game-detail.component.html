@@ -1,6 +1,6 @@
 <button routerLink="/games"><i class="fa-solid fa-arrow-left"></i></button>
-<button routerLink="/games/edit/{{game.id}}">Modifica gioco</button>
-<button (click)="openDialog()">
+<button *ngIf="isAdmin" routerLink="/games/edit/{{game.id}}">Modifica gioco</button>
+<button *ngIf="isAdmin" (click)="openDialog()">
     Cancella gioco
 </button> 
 

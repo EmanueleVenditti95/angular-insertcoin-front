@@ -25,7 +25,6 @@ export class NavigationComponent {
   isAdmin? : boolean;
 
   ngOnInit(): void {
-
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLogged = loggedIn;     
       if (loggedIn) {
@@ -37,7 +36,7 @@ export class NavigationComponent {
         this.categories = [];
         this.username = "";
       }
-    });      
+    });  
   }
 
   getCategories() {
