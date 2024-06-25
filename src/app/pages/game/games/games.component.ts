@@ -49,4 +49,9 @@ export class GamesComponent implements OnInit {
     })
   }
 
+  searchGames(gameName : string) {
+    console.log(gameName);
+    
+  }
+
 }

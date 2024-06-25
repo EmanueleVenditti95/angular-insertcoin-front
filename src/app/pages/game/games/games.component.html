@@ -3,6 +3,13 @@
          <i class="fa-solid fa-arrow-left"></i>
 </button>
 
+<div class="row align-items-center">
+    <div class="col-auto searchbar">
+        <i class="fa-solid fa-magnifying-glass searchglass"></i>
+        <input #gameName inputmode="search" placeholder="Cerca gioco" type="search" (keyup.enter)="searchGames(gameName.value)"/>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-3 py-3" *ngFor="let game of games">
         <div class="card-game">
