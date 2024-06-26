@@ -29,7 +29,7 @@ const routes: Routes = [
         component: GameEditComponent
       },
       {
-        path: 'games/search',
+        path: 'games/search/:nome',
         component: GamesComponent
       },
       {

@@ -25,3 +25,28 @@ button {
         color: general.$light;
     }
 }
+
+.description {
+    height: 500px;
+    overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: general.$light;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: general.$light-blue;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: general.$dark-blue;
+  }

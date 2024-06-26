@@ -34,6 +34,13 @@ button {
     }
 }
 
+.navigation{
+    button {
+        margin-top: 0;
+        margin-left: 15px;
+    }
+}
+
 .searchbar {
     background-color: general.$dark-blue;
     border: none;
