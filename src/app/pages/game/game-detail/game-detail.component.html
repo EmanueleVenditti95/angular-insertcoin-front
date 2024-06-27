@@ -18,3 +18,8 @@
 </div>
 <p>{{error?.message ? "Gioco non trovato" : ""}}</p>
 
+<div class="d-flex gap-3">
+    <p>Disponibile su : </p>
+    <p *ngFor="let c of game.consoles">{{c.nome}}</p>
+</div>
+

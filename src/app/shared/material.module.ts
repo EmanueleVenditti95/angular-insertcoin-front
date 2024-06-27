@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -25,7 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   exports: [
     CommonModule,
@@ -38,7 +40,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ]
 })
 

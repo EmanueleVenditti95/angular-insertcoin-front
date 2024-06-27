@@ -36,8 +36,6 @@ export class GameDetailComponent implements OnInit {
       this.isAdmin = true;
     else 
       this.isAdmin = false;
-
-    console.log(localStorage);  
   }
 
   getVideoUrl(game?: Game): SafeResourceUrl {
@@ -51,6 +49,7 @@ export class GameDetailComponent implements OnInit {
         this.gameService.getGame(this.id).subscribe({
           next: data => {
             this.game = data.gioco; 
+            console.log(this.game);           
           },
           error: err => {
             console.error('Game not found ' , err);

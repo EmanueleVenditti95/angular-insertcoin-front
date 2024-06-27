@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Console } from "./console";
 
 export class Game {
     id?: number;
@@ -7,4 +8,5 @@ export class Game {
     video?: string;
     img?: string;
     categoria?: Category;
+    consoles?: Console[];
 }
