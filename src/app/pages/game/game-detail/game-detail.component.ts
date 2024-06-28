@@ -48,8 +48,7 @@ export class GameDetailComponent implements OnInit {
         this.id = value['id'];
         this.gameService.getGame(this.id).subscribe({
           next: data => {
-            this.game = data.gioco; 
-            console.log(this.game);           
+            this.game = data.gioco;          
           },
           error: err => {
             console.error('Game not found ' , err);

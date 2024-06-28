@@ -47,8 +47,7 @@ export class GameCreationComponent {
 
   getCategories() {
     this.categoryService.getCategories().subscribe((data:any) => {
-      this.categories = data._embedded.categorie;
-      console.log('categorie caricate');           
+      this.categories = data._embedded.categorie;         
     })
   }
 
@@ -56,7 +55,6 @@ export class GameCreationComponent {
     this.consoleService.getConsoles().subscribe((data:any) => {
       this.consoles = data.consoles;
       this.setConsolesInForm();
-      console.log('consoles caricate');   
     })
   }
 

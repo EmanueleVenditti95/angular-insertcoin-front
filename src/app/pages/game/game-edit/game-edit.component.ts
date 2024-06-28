@@ -63,8 +63,6 @@ export class GameEditComponent {
               categoria:this.game.categoria?.id,
             });
             this.setOldConsolesInForm();
-
-          console.log(this.requestForm.value);
           },
           error: err => {
             console.error('Game not found ', err);
