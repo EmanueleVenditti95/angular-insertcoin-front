@@ -84,16 +84,9 @@ export class GameEditComponent {
 
   getConsoles() {
     this.consoleService.getConsoles().subscribe((data:any) => {
-      this.consoles = data._embedded.consoles;
+      this.consoles = data.consoles;
       this.setOldConsolesInForm();
-      console.log(this.consoles);      
     })
-  }
-
-  getConsolesControls() { 
-    console.log((this.requestForm.get('consoles') as FormArray).controls);
-       
-    return (this.requestForm.get('consoles') as FormArray).controls;
   }
 
   setOldConsolesInForm() {

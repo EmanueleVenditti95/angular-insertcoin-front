@@ -13,8 +13,22 @@ const routes: Routes = [
     component: NavigationComponent,
     children: [
       {
+        path: '',
+        component: HomepageComponent,
+        children: [
+          {
+            path: 'login',
+            component: HomepageComponent
+          },
+          {
+            path: 'register',
+            component: HomepageComponent
+          }
+          ]
+      },
+      {
         path: 'games',
-        component: GamesComponent
+        component: GamesComponent,
       },
       {
         path: 'games/add',
@@ -31,30 +45,21 @@ const routes: Routes = [
       {
         path: 'games/search/:nome',
         component: GamesComponent
-      },
-      {
-        path: '',
-        component: HomepageComponent,
-        children: [
-        {
-          path: 'login',
-          component: HomepageComponent
-        },
-        {
-          path: 'register',
-          component: HomepageComponent
-        }
-        ]
-      },
+      },     
       {
         path: 'games/category/:categoryId',
         component: GamesComponent
       },
       {
-        path: 'games/category/:categoryId/game/:id',
+        path: 'games/search/:nome/category/:id',
         redirectTo:'games/game/:id',
         pathMatch:'full'
-      }
+      },
+      // {
+      //   path: 'games/category/:categoryId/game/:id',
+      //   redirectTo:'games/category/:categoryId',
+      //   pathMatch:'full'
+      // }
     ]
   }
 ];

@@ -24,15 +24,28 @@
         <textarea matInput formControlName="descrizione"></textarea>
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Assegna una categoria</mat-label>
-        <mat-select formControlName="categoria" required>
-            @for (c of categories; track c) {
-                <mat-option [value]="c.id">{{c.nome}}</mat-option>
-            }
-        </mat-select>
-      </mat-form-field>
+    <div class="row mb-3">
+        <div class="col-6">
+            <mat-label>Console :</mat-label>
+            <div formArrayName="consoles">
+                <div *ngFor="let console of consoles; let i = index">
+                    <mat-checkbox color="secondary" [formControlName]="i">{{console.nome}}</mat-checkbox>
+                </div>
+            </div>
+        </div>
 
-    <a mat-flat-button color="secondary" routerLink="/games">Annulla</a>
-    <button mat-flat-button color="primary" type="submit" class="ms-2">Aggiungi</button>
+        <mat-form-field class="col-6">
+            <mat-label>Assegna una categoria</mat-label>
+            <mat-select formControlName="categoria" required>
+                @for (c of categories; track c) {
+                <mat-option [value]="c.id">{{c.nome}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="pb-3">
+        <a mat-flat-button color="secondary" routerLink="/games">Annulla</a>
+        <button mat-flat-button color="primary" type="submit" class="ms-2">Aggiungi</button>
+    </div>
   </form>

@@ -1,8 +1,12 @@
-
+@use '../../../navigation/navigation.component.scss' as general;
 
 mat-form-field {
     display: block;
     textarea {
         height: 200px;
     }
+}
+
+::ng-deep .mat-mdc-checkbox .mat-internal-form-field {
+    color: general.$light !important;
 }

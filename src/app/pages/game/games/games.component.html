@@ -22,12 +22,12 @@
 <div class="row mt-2">
     <div class="col-3 py-3" *ngFor="let game of games">
         <div class="card-game">
-            <a routerLink="game/{{game.id}}">
+            <a [routerLink]="['/games/game', game.id]">
                 <p>{{ game.nome }}</p>
                 <img *ngIf="game.img" src="{{game.img}}" alt="">
                 <img *ngIf="!game.img" src="https://placehold.co/600x400" alt="">
                 </a>
-            <button routerLink="category/{{game.categoria?.id}}">{{game.categoria?.nome}}</button>
+            <button [routerLink]="['/games/category', game.categoria?.id]">{{game.categoria?.nome}}</button>
         </div>
     </div>
 </div>
