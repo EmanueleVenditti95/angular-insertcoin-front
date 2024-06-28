@@ -2,51 +2,61 @@
 
 
 h3 {
-    margin-top: 22.5px;
+  margin-top: 22.5px;
 }
 
 .category-badge {
-    background-color: general.$dark-blue;
-    border-radius: 5px;
-    color: general.$light-blue;
-    font-size: smaller;
-    padding: 6px;
+  background-color: general.$dark-blue;
+  border-radius: 5px;
+  color: general.$light-blue;
+  font-size: smaller;
+  padding: 6px;
 }
 
 button {
-    background-color: general.$dark-blue;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    color: general.$light-blue;
-    font-size: smaller;
-    &:hover {
-        background-color: general.$light-blue;
-        color: general.$light;
-    }
+  background-color: general.$dark-blue;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: general.$light-blue;
+  font-size: smaller;
+
+  &:hover {
+    background-color: general.$light-blue;
+    color: general.$light;
+  }
+}
+
+.console {
+  background-color: general.$light;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: general.$dark-blue;
+  font-size: smaller;
+  padding: 0 10px;
 }
 
 .description {
-    height: 500px;
-    overflow: auto;
+  height: 500px;
+  overflow: auto;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: general.$light;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: general.$light-blue;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: general.$dark-blue;
-  }
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: general.$light;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: general.$light-blue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: general.$dark-blue;
+}
