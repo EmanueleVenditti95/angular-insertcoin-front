@@ -20,6 +20,7 @@ button {
   margin-right: 10px;
   color: general.$light-blue;
   font-size: smaller;
+  padding: 0 15px;
 
   &:hover {
     background-color: general.$light-blue;
@@ -33,7 +34,7 @@ button {
   margin-right: 10px;
   color: general.$dark-blue;
   font-size: smaller;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .description {
@@ -59,4 +60,8 @@ button {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: general.$dark-blue;
+}
+
+@media (min-width: 768px) {
+  
 }

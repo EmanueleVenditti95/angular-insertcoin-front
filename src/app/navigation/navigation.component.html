@@ -5,24 +5,35 @@
                 <span class="text-center">INSERTCOIN</span>
             </div>
             <div class="col-grow-1">
-                <a *ngIf="!isLogged" routerLink="/login">Accedi</a>
 
-                <a *ngIf="!isLogged" routerLink="/register">Registrati</a>
+                <i [matMenuTriggerFor]="options" class="fa-solid fa-bars icon bars-menu">
+                    <mat-menu #options="matMenu">
+                        <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="giochi">Giochi</button>
+                        <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="categorie">Categorie</button>
+                        <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="user">{{username}}</button>
+                    </mat-menu>
+                </i>
 
-                <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>
-                <mat-menu #giochi="matMenu">
-                  <button mat-menu-item routerLink="/games">Lista giochi</button>
-                  <button *ngIf="isAdmin" mat-menu-item routerLink="/games/add">Aggiungi</button>
-                </mat-menu>
-                
-                <a *ngIf="isLogged" [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
-                <mat-menu #categorie="matMenu">
-                    <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
-                </mat-menu>
-                <a *ngIf="isLogged" [matMenuTriggerFor]="user">{{username}}</a>
-                <mat-menu #user="matMenu">
-                    <button mat-menu-item (click)="logOut()">Logout</button>
-                </mat-menu>   
+                <div class="large-menu">
+                    <mat-menu #login><a *ngIf="!isLogged" routerLink="/login">Accedi</a></mat-menu>
+    
+                    <mat-menu #register><a *ngIf="!isLogged" routerLink="/register">Registrati</a></mat-menu>
+    
+                    <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>
+                    <mat-menu #giochi="matMenu">
+                      <button mat-menu-item routerLink="/games">Lista giochi</button>
+                      <button *ngIf="isAdmin" mat-menu-item routerLink="/games/add">Aggiungi</button>
+                    </mat-menu>
+                    
+                    <a *ngIf="isLogged" [matMenuTriggerFor]="categorie" class="ms-2">Categorie</a>
+                    <mat-menu #categorie="matMenu">
+                        <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
+                    </mat-menu>
+                    <a *ngIf="isLogged" [matMenuTriggerFor]="user">{{username}}</a>
+                    <mat-menu #user="matMenu">
+                        <button mat-menu-item (click)="logOut()">Logout</button>
+                    </mat-menu>   
+                </div>
             </div>
     </div>
 </header>

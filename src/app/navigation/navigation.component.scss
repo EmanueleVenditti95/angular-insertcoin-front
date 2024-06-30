@@ -48,3 +48,19 @@ header {
 .logo {
     cursor: pointer;
 }
+
+.large-menu {
+    display: none;
+}
+
+//MEDIA QUERIES
+
+@media (min-width: 768px) {
+    .bars-menu {
+        display: none;
+    }
+
+    .large-menu {
+        display: block;
+    }
+}

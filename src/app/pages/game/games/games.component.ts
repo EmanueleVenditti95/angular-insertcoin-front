@@ -17,6 +17,7 @@ export class GamesComponent implements OnInit {
   pageTitle: String = '';
   urlCategory?: string;
   gameName: string = "";
+  urlSearch?: string;
 
   constructor(
     private gameService: GameService,
@@ -35,6 +36,7 @@ export class GamesComponent implements OnInit {
         this.urlCategory = `/games/category/${this.categoryId}`
       } else if (this.gameName != '' && this.gameName) {
         this.searchGames();
+        this.urlSearch = `/games/search/${this.gameName}`
       } else {
         this.getGames();
         this.pageTitle = 'Lista giochi: '
