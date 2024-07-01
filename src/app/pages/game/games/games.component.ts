@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,24 +12,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class GamesComponent implements OnInit {
 
   isLoading: boolean = true;
-  categoryId?: number;
-  games: Game[] = [];
   pageTitle: String = '';
-  urlCategory?: string;
-  gameName: string = "";
   urlSearch?: string;
+
+  categoryId?: number;
+  urlCategory?: string;
+
+  games: Game[] = [];
+  gameName: string = "";
+
+  consoleId: number = 0;
+  consoleName?: string;
+  
 
   constructor(
     private gameService: GameService,
     public router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
       this.categoryId = +params.get('categoryId')!;
-      this.gameName = params.get('nome')!;  
+      this.gameName = params.get('gameName')!;
+      this.consoleId = +params.get('consoleId')!; 
+      this.consoleName = params.get('consoleName')!; 
 
       if (this.categoryId && this.categoryId > 0) {
         const category = this.getGamesByCategoryId(this.categoryId);
@@ -37,6 +45,8 @@ export class GamesComponent implements OnInit {
       } else if (this.gameName != '' && this.gameName) {
         this.searchGames();
         this.urlSearch = `/games/search/${this.gameName}`
+      } else if (this.consoleId && this.consoleId > 0) {
+        this.getGamesByConsoleId(this.consoleId);
       } else {
         this.getGames();
         this.pageTitle = 'Lista giochi: '
@@ -56,6 +66,14 @@ export class GamesComponent implements OnInit {
       this.isLoading = false;
       this.games = data.giochi;
       this.pageTitle = 'Lista giochi ' + this.games[0].categoria?.nome + ':';          
+    })
+  }
+
+  getGamesByConsoleId(id:number) {
+    this.gameService.getGamesByConsoleId(id).subscribe((data: any) => {
+      this.isLoading = false;
+      this.games = data.giochi;
+      this.pageTitle = 'Lista giochi per "' + this.consoleName + '" :';
     })
   }
 

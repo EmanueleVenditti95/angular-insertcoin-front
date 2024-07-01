@@ -29,6 +29,10 @@ export class GameService {
     return this.http.get<Game[]>(this.baseUrl + "/sort/" + id);
   }
 
+  getGamesByConsoleId(id: number) {
+    return this.http.get<Game[]>(this.baseUrl + "/console/" + id);
+  }
+
   getGame(id: number): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/" + id);
   }

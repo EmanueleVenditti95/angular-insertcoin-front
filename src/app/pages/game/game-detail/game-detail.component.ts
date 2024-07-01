@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from '../../../model/game';
 import { GameService } from '../../../services/game.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteModalComponent } from '../../../components/delete-modal/delete-modal.component';
-import { AuthService } from '../../../services/auth.service';
 import { NavigationComponent } from '../../../navigation/navigation.component';
 
 

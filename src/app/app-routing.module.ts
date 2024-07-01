@@ -43,7 +43,7 @@ const routes: Routes = [
         component: GameEditComponent
       },
       {
-        path: 'games/search/:nome',
+        path: 'games/search/:gameName',
         component: GamesComponent
       },     
       {
@@ -51,15 +51,9 @@ const routes: Routes = [
         component: GamesComponent
       },
       {
-        path: 'games/search/:nome/category/:id',
-        redirectTo:'games/game/:id',
-        pathMatch:'full'
-      },
-      // {
-      //   path: 'games/category/:categoryId/game/:id',
-      //   redirectTo:'games/category/:categoryId',
-      //   pathMatch:'full'
-      // }
+        path: 'games/console/:consoleId/:consoleName',
+        component: GamesComponent
+      }
     ]
   }
 ];

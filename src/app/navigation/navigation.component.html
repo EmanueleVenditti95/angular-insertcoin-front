@@ -10,14 +10,15 @@
                     <mat-menu #options="matMenu">
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="giochi">Giochi</button>
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="categorie">Categorie</button>
+                        <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="consoles">Console</button>
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="user">{{username}}</button>
                     </mat-menu>
                 </i>
 
                 <div class="large-menu">
-                    <mat-menu #login><a *ngIf="!isLogged" routerLink="/login">Accedi</a></mat-menu>
+                    <a *ngIf="!isLogged" routerLink="/login">Accedi</a>
     
-                    <mat-menu #register><a *ngIf="!isLogged" routerLink="/register">Registrati</a></mat-menu>
+                    <a *ngIf="!isLogged" routerLink="/register">Registrati</a>
     
                     <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>
                     <mat-menu #giochi="matMenu">
@@ -29,10 +30,17 @@
                     <mat-menu #categorie="matMenu">
                         <button mat-menu-item *ngFor="let c of categories" (click)="selectCategory(c.id)">{{c.nome}}</button>
                     </mat-menu>
+
+                    <a *ngIf="isLogged" [matMenuTriggerFor]="consoles" class="ms-2">Console</a>
+                    <mat-menu #consoles="matMenu">
+                        <button mat-menu-item *ngFor="let c of cons" (click)="selectConsole(c.id,c.nome)">{{c.nome}}</button>
+                    </mat-menu>
+
                     <a *ngIf="isLogged" [matMenuTriggerFor]="user">{{username}}</a>
                     <mat-menu #user="matMenu">
                         <button mat-menu-item (click)="logOut()">Logout</button>
-                    </mat-menu>   
+                    </mat-menu>
+                      
                 </div>
             </div>
     </div>
