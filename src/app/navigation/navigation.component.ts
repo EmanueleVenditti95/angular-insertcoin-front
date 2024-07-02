@@ -64,6 +64,10 @@ export class NavigationComponent {
     this.router.navigate(['/games/console/', id,nome]);
   }
 
+  goToFavorites() {
+    this.router.navigate(['/games/', 'favorites']);
+  }
+
   public logOut() : void {   
     this.authService.logOut();
     this.username = "";

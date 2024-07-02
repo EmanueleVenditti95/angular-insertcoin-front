@@ -1,3 +1,4 @@
+import { Game } from "./game";
 import { Role } from "./role";
 
 export class User {
@@ -7,4 +8,5 @@ export class User {
     password? : string;
     foto? : any;
     ruoli? : Role[];
+    giochi? : Game[];
 }

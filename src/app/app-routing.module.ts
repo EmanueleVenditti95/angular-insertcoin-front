@@ -53,6 +53,10 @@ const routes: Routes = [
       {
         path: 'games/console/:consoleId/:consoleName',
         component: GamesComponent
+      },
+      {
+        path: 'games/:favorites',
+        component: GamesComponent
       }
     ]
   }

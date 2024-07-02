@@ -45,7 +45,7 @@ export class AuthService {
     return username;
   }
 
-  getUser(username: string) : Observable<User> {
+  getUser(username: string | null) : Observable<User> {
     return this.http.get(this.baseUrl + "/api/utenti/" + username);
   }
 

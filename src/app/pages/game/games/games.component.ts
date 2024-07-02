@@ -2,6 +2,8 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit,
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-games',
@@ -23,10 +25,10 @@ export class GamesComponent implements OnInit {
 
   consoleId: number = 0;
   consoleName?: string;
-  
 
   constructor(
     private gameService: GameService,
+    private userService: AuthService,
     public router: Router,
     private route: ActivatedRoute
   ) { }
@@ -38,7 +40,7 @@ export class GamesComponent implements OnInit {
       this.gameName = params.get('gameName')!;
       this.consoleId = +params.get('consoleId')!; 
       this.consoleName = params.get('consoleName')!; 
-
+      
       if (this.categoryId && this.categoryId > 0) {
         const category = this.getGamesByCategoryId(this.categoryId);
         this.urlCategory = `/games/category/${this.categoryId}`
@@ -46,7 +48,9 @@ export class GamesComponent implements OnInit {
         this.searchGames();
         this.urlSearch = `/games/search/${this.gameName}`
       } else if (this.consoleId && this.consoleId > 0) {
-        this.getGamesByConsoleId(this.consoleId);
+        this.getGamesByConsoleId(this.consoleId)
+      } else if (params.get('favorites') != null) {
+        this.getFavoritesGames();
       } else {
         this.getGames();
         this.pageTitle = 'Lista giochi: '
@@ -58,6 +62,13 @@ export class GamesComponent implements OnInit {
     this.gameService.getGames().subscribe((data: any) => {
       this.isLoading = false;
       this.games = data.giochi;  
+    })
+  }
+
+  getFavoritesGames() {
+    this.userService.getUser(this.userService.getUsername()).subscribe(data => {
+      this.isLoading = false;
+      this.games = data.giochi as Game[];         
     })
   }
 
