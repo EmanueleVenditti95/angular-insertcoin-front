@@ -40,6 +40,7 @@ export class GamesComponent implements OnInit {
       this.gameName = params.get('gameName')!;
       this.consoleId = +params.get('consoleId')!; 
       this.consoleName = params.get('consoleName')!; 
+      this.getFavoritesGames();
       
       if (this.categoryId && this.categoryId > 0) {
         const category = this.getGamesByCategoryId(this.categoryId);
@@ -51,7 +52,6 @@ export class GamesComponent implements OnInit {
         this.getGamesByConsoleId(this.consoleId)
       } else {
         this.getGames();
-        this.getFavoritesGames();
         this.pageTitle = 'Lista giochi: '
       }
     });
