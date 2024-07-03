@@ -45,6 +45,20 @@ export class GameService {
     return this.http.post(this.baseUrl + "/inserimento", game);
   }
 
+  addFavoriteGame(userId?:number,gameId?:number) {
+    return this.http.post(this.baseUrl + '/aggiungiPreferito',
+      {utenteId:userId , giocoId:gameId},
+      {observe: 'response'}
+    )
+  }
+
+  removeFavoriteGame(userId?:number,gameId?:number) {
+    return this.http.post(this.baseUrl + '/rimuoviPreferito',
+      {utenteId:userId , giocoId:gameId},
+      {observe: 'response'}
+    )
+  }
+
   saveGame(game: Game) {
     return this.http.put(this.baseUrl + "/aggiornamento", game);
   }

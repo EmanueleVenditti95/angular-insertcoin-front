@@ -23,7 +23,7 @@
                     <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>
                     <mat-menu #giochi="matMenu">
                         <button mat-menu-item (click)="goToFavorites()">Preferiti</button>
-                        <button mat-menu-item routerLink="/games">Lista giochi</button>
+                        <button mat-menu-item routerLink="/games">Tutti</button>
                         <button *ngIf="isAdmin" mat-menu-item routerLink="/games/add">Aggiungi</button>
                     </mat-menu>
                     

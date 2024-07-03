@@ -19,6 +19,20 @@
         aspect-ratio: 1.2;
         object-fit:contain;
     }
+    .btn-favorite {
+        background-color: general.$light-grey;
+        color: general.$dark-grey;
+        &:hover {
+            background-color: general.$light;
+        }
+    }
+    .favorite {
+        background-color: general.$red;
+        color: general.$light;
+        &:hover {
+            background-color: general.$light-red;
+        }
+    }
 }
 
 button {

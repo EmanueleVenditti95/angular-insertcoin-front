@@ -3,7 +3,6 @@ import { GameService } from '../../../services/game.service';
 import { Game } from '../../../model/game';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-games',
@@ -20,6 +19,7 @@ export class GamesComponent implements OnInit {
   categoryId?: number;
   urlCategory?: string;
 
+  favorites: Game[] = [];
   games: Game[] = [];
   gameName: string = "";
 
@@ -49,10 +49,9 @@ export class GamesComponent implements OnInit {
         this.urlSearch = `/games/search/${this.gameName}`
       } else if (this.consoleId && this.consoleId > 0) {
         this.getGamesByConsoleId(this.consoleId)
-      } else if (params.get('favorites') != null) {
-        this.getFavoritesGames();
       } else {
         this.getGames();
+        this.getFavoritesGames();
         this.pageTitle = 'Lista giochi: '
       }
     });
@@ -67,8 +66,9 @@ export class GamesComponent implements OnInit {
 
   getFavoritesGames() {
     this.userService.getUser(this.userService.getUsername()).subscribe(data => {
-      this.isLoading = false;
-      this.games = data.giochi as Game[];         
+      if(data)this.isLoading = false;
+      this.favorites = data.giochi as Game[];    
+      console.log('Preferiti:',this.favorites);          
     })
   }
 
@@ -101,6 +101,29 @@ export class GamesComponent implements OnInit {
   navigateTo(input : string) {
     let url = `games/search/${input}`;
     this.router.navigateByUrl(url);
+  }
+
+  toggleFavorite(g:Game) {
+    this.userService.getUser(this.userService.getUsername()).subscribe(user => {
+
+      const gameIds = user.giochi?.map(game => game.id);
+
+      if(!gameIds?.includes(g.id)) {
+        this.gameService.addFavoriteGame(user.id,g.id).subscribe(data => {
+          this.favorites.push(g);          
+        }); 
+
+      } else if (gameIds?.includes(g.id)){
+        this.gameService.removeFavoriteGame(user.id,g.id).subscribe(data => {
+          let i = this.favorites.indexOf(g);
+          this.favorites.splice(i,1);        
+        });   
+      }    
+    })
+  }
+
+  isFavorite(id:number) {
+    return this.favorites.map(game => game.id).includes(id);
   }
 
 }
