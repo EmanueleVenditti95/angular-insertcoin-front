@@ -26,8 +26,13 @@ export class TokenStorageService {
     }
   }
 
-  isAdmin() {
+  getUsername() :string | null {
+    let username:string | null = null;
     
+    if (this.isBrowser())
+      username = localStorage.getItem("username");
+
+    return username;
   }
 
   private isBrowser(): boolean {

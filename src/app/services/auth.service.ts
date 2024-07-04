@@ -41,8 +41,7 @@ export class AuthService {
   }
 
   getUsername() :string | null {
-    const username = localStorage.getItem("username");
-    return username;
+    return this.tokenStorage.getUsername();
   }
 
   getUser(username: string | null) : Observable<User> {

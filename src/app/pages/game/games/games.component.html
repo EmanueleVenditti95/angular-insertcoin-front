@@ -16,7 +16,6 @@
 </div>
 
 <h3 *ngIf="router.url !== '/games/favorites'">{{pageTitle}}</h3>
-<h3 *ngIf="router.url === '/games/favorites'">Preferiti:</h3>
 
 <div *ngIf="!games.length && !isLoading" class="text-center mt-5">Nessun risultato trovato!</div>
 <div *ngIf="isLoading" class="text-center mt-5">Caricamento in corso....</div>
@@ -39,24 +38,32 @@
     </div>
 </div>
 
-<div *ngIf="router.url === '/games/favorites'" class="row mt-2">
-    <div class="col-12 col-md-6 col-xl-3 py-3" *ngFor="let f of favorites">
-        <div class="card-game">
-            <a [routerLink]="['/games/game', f.id]">
-                <p>{{ f.nome }}</p>
-                <img *ngIf="f.img" src="{{f.img}}" alt="">
-                <img *ngIf="!f.img" src="https://placehold.co/600x400" alt="">
-                </a>
-                <div class="d-flex gap-2">
-                    <button class="col-10" [routerLink]="['/games/category', f.categoria?.id]">
-                        {{f.categoria?.nome}}
-                    </button>
-                    <button class="col-2" [class.favorite]="isFavorite(+f.id!)" (click)="toggleFavorite(f)">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </div>
+
+<section *ngIf="router.url === '/games/favorites'">
+    <h3>Preferiti:</h3>
+    
+    <div *ngIf="!favorites.length && !isLoading" class="text-center mt-5">Nessun preferito</div>
+    <div *ngIf="isLoading" class="text-center mt-5">Caricamento in corso....</div>
+    
+    <div class="row mt-2">
+        <div class="col-12 col-md-6 col-xl-3 py-3" *ngFor="let f of favorites">
+            <div class="card-game">
+                <a [routerLink]="['/games/game', f.id]">
+                    <p>{{ f.nome }}</p>
+                    <img *ngIf="f.img" src="{{f.img}}" alt="">
+                    <img *ngIf="!f.img" src="https://placehold.co/600x400" alt="">
+                    </a>
+                    <div class="d-flex gap-2">
+                        <button class="col-10" [routerLink]="['/games/category', f.categoria?.id]">
+                            {{f.categoria?.nome}}
+                        </button>
+                        <button class="col-2" [class.favorite]="isFavorite(+f.id!)" (click)="toggleFavorite(f)">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 

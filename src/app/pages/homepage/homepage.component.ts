@@ -39,8 +39,6 @@ export class HomepageComponent {
     this.gameService.getRandGames().subscribe((data: any) => {
       this.isLoading = false;
       this.games = data.giochi;
-      console.log(data.giochi);
-        
     })
   }
 }
