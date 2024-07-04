@@ -1,6 +1,8 @@
-.main {
+@use '../../navigation/navigation.component.scss' as general;
+
+.accessarea {
     position: relative;
-    height: 700px;
+    height: 700px !important;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -8,7 +10,7 @@
     flex-direction: column;
 }
 
-.main::before {
+.accessarea::before {
     content: "";
     position: absolute;
     top: 0;
@@ -28,4 +30,29 @@
 
 a {
     color: currentColor;
+    text-decoration: underline;
+}
+
+.game-img {
+    width: 100%;
+    height: 700px;
+    aspect-ratio: 1.2;
+    object-fit: cover;
+}
+
+.game-title {
+    background-color: general.$light;
+    border-radius: 5px;
+    color: general.$dark-blue;
+    font-size: medium;
+    margin: 5px 20px;
+}
+
+.game-category {
+    background-color: general.$dark-blue;
+    border: none;
+    border-radius: 5px;
+    color: general.$light-blue;
+    font-size: smaller;
+    margin: 5px 20px;
 }

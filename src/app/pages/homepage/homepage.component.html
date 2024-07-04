@@ -1,21 +1,58 @@
-<div class="main">
-    <div class="content">
-        <div *ngIf="!isLogged && router.url === '/'">
-            <h1>Benvenuto su InsertCoin</h1>
-            <p>
-                Per visualizzare le raccolte di videogiochi 
-                <a routerLink="/login">Accedi</a>
-                o
-                <a routerLink="/register">Registrati</a>
-            </p>
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="accessarea">
+            <div class="content">
+                <div *ngIf="!isLogged && router.url === '/'" class="text-center">
+                    <h1>Benvenuto su InsertCoins</h1>
+                    <p>
+                        Per visualizzare le raccolte di videogiochi
+                        <a routerLink="/login">Accedi</a>
+                        o
+                        <a routerLink="/register">Registrati</a>
+                    </p>
+                </div>
+        
+                <div *ngIf="isLogged" class="text-center">
+                    <h1>Benvenuto</h1>
+                    <h2>{{username}}</h2>
+                </div>
+        
+                <app-login *ngIf="router.url === '/login'"></app-login>
+                <app-register *ngIf="router.url === '/register'"></app-register>
+            </div>
         </div>
-
-        <div *ngIf="isLogged"  class="text-center">
-            <h1>Benvenuto</h1>
-            <h2>{{username}}</h2>
+    </div>
+    <div class="col-12 col-xl-6">
+        <div id="carousel-autoplay" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button *ngFor="let game of games; let i = index" type="button" 
+                        data-bs-target="#carousel-autoplay" 
+                        [attr.data-bs-slide-to]="i" 
+                        [class.active]="i === 0"
+                        [attr.aria-current]="i === 0 ? 'true' : null"
+                        [attr.aria-label]="'Slide ' + (i + 1)"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let game of games; let i = index" [class.active]="i === 0">
+                    <img [src]="game.img" class="game-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="game-title">{{game.nome}}</h5>
+                        <p class="game-category">{{game.categoria?.nome}}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-autoplay"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-autoplay"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-        <app-login *ngIf="router.url === '/login'"></app-login>
-        <app-register *ngIf="router.url === '/register'"></app-register>
     </div>
 </div>
+
+
