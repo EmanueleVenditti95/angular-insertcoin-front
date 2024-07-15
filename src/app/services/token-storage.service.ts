@@ -9,20 +9,20 @@ export class TokenStorageService {
 
   saveToken(token: string): void {
     if (this.isBrowser()) {
-      localStorage.setItem(this.accessToken, token);
+      sessionStorage.setItem(this.accessToken, token);
     }
   }
 
   getToken(): string | null {
     if (this.isBrowser()) {
-      return localStorage.getItem(this.accessToken);
+      return sessionStorage.getItem(this.accessToken);
     }
     return null;
   }
 
   removeToken(): void {
     if (this.isBrowser()) {
-      localStorage.removeItem(this.accessToken);
+      sessionStorage.removeItem(this.accessToken);
     }
   }
 
@@ -30,12 +30,12 @@ export class TokenStorageService {
     let username:string | null = null;
     
     if (this.isBrowser())
-      username = localStorage.getItem("username");
+      username = sessionStorage.getItem("username");
 
     return username;
   }
 
   private isBrowser(): boolean {
-    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+    return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
   }
 }

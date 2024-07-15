@@ -36,7 +36,7 @@ export class AuthService {
 
   saveUser(token: string, username: string): void {
     this.tokenStorage.saveToken(token);
-    localStorage.setItem("username", username);
+    sessionStorage.setItem("username", username);
     this.loggedIn.next(true);
   }
 
@@ -54,7 +54,7 @@ export class AuthService {
 
   logOut(): void {
       this.tokenStorage.removeToken();
-      localStorage.clear();
+      sessionStorage.clear();
       this.loggedIn.next(false);
       console.log("Logout");    
   }

@@ -12,12 +12,13 @@
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="categorie">Categorie</button>
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="consoles">Console</button>
                         <button *ngIf="isLogged" mat-menu-item [matMenuTriggerFor]="user">{{username}}</button>
+                        <button *ngIf="!isLogged" routerLink="/login" mat-menu-item>Accedi</button>
+                        <button *ngIf="!isLogged" routerLink="/register" mat-menu-item>Registrati</button>
                     </mat-menu>
                 </i>
 
                 <div class="large-menu">
-                    <a *ngIf="!isLogged" routerLink="/login">Accedi</a>
-    
+                    <a *ngIf="!isLogged" routerLink="/login">Accedi</a>    
                     <a *ngIf="!isLogged" routerLink="/register">Registrati</a>
     
                     <a *ngIf="isLogged" [matMenuTriggerFor]="giochi">Giochi</a>

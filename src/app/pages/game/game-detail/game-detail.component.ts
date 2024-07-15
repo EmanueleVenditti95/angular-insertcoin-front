@@ -31,7 +31,7 @@ export class GameDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getGame();
 
-    if(localStorage.getItem('username') === 'admin')
+    if(sessionStorage.getItem('username') === 'admin')
       this.isAdmin = true;
     else 
       this.isAdmin = false;
